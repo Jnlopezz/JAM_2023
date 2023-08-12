@@ -25,9 +25,10 @@ func set_wait_time() -> int:
 func walk(target_pos: Vector2) -> void:
 	var npc : PopochiuCharacter = C[character_name]
 	npc.walk(target_pos)
-
+	#TODO : start timer y subir manito
 
 func _on_time_out() -> void:
 	var child = randi() % $Box1.get_child_count()
 	var pos = $Box1.get_child(child).global_position
 	walk(pos)
+	

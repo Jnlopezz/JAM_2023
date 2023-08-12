@@ -49,6 +49,7 @@ animations = [{
 
 [node name="CharacterHuman" type="Area2D"]
 script = ExtResource("1_4cv35")
+is_player = true
 flips_when = 1
 script_name = "Human"
 description = "Human"
@@ -76,6 +77,7 @@ color = Color(0, 1, 1, 1)
 texture_filter = 1
 position = Vector2(-8, -120)
 sprite_frames = SubResource("SpriteFrames_re8m6")
+animation = &"idle"
 
 [node name="DialogPos" type="Marker2D" parent="."]
 visible = false

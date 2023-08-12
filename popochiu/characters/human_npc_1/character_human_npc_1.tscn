@@ -30,7 +30,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2pklr")
 }],
-"loop": true,
+"loop": false,
 "name": &"hand",
 "speed": 5.0
 }, {
@@ -62,6 +62,9 @@ animations = [{
 
 [node name="CharacterHumanNPC1" type="Area2D"]
 script = ExtResource("1_frxgl")
+is_player = null
+flips_when = 1
+ignore_walkable_areas = true
 script_name = "HumanNPC1"
 description = "Human Npc 1"
 cursor = 8
@@ -88,7 +91,7 @@ color = Color(0, 1, 1, 1)
 texture_filter = 1
 position = Vector2(-9, -112)
 sprite_frames = SubResource("SpriteFrames_q7ndd")
-animation = &"hand"
+animation = &"idle"
 
 [node name="DialogPos" type="Marker2D" parent="."]
 visible = false

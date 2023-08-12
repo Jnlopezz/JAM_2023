@@ -4,6 +4,7 @@ extends PopochiuCharacter
 # Use await E.queue([]) if you want to pause the excecution of
 # the function until the sequence of events finishes.
 @onready var anim_player: AnimatedSprite2D = $Sprite2D
+@export var is_player := false
 
 const Data := preload('character_human_state.gd')
 

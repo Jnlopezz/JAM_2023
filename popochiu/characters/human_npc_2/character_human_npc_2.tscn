@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhkj2r4qfpk5h"]
+
+[ext_resource type="Script" path="res://popochiu/characters/human_npc_2/character_human_npc_2.gd" id="1_of4p8"]
+[ext_resource type="Texture2D" uid="uid://d17drs72w2hox" path="res://popochiu/characters/human/character_sheet.png" id="2_rpybm"]
+[ext_resource type="Texture2D" uid="uid://s0il388qmmw0" path="res://popochiu/characters/human/Human.png" id="3_oqmb8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn011"]
+atlas = ExtResource("2_rpybm")
+region = Rect2(131, 0, 131, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h00n2"]
+atlas = ExtResource("3_oqmb8")
+region = Rect2(0, 0, 113, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxveh"]
+atlas = ExtResource("3_oqmb8")
+region = Rect2(226, 0, 113, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h21g"]
+atlas = ExtResource("3_oqmb8")
+region = Rect2(113, 0, 113, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvpdf"]
+atlas = ExtResource("3_oqmb8")
+region = Rect2(339, 0, 113, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p7bnq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn011")
+}],
+"loop": false,
+"name": &"hand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h00n2")
+}],
+"loop": true,
+"name": &"idel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxveh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h21g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvpdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h21g")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="CharacterHumanNPC2" type="Area2D"]
+script = ExtResource("1_of4p8")
+flips_when = 1
+ignore_walkable_areas = true
+script_name = "HumanNPC2"
+description = "Human Npc 2"
+cursor = 8
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="BaselineHelper" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(-10000, 0, 10000, 0)
+width = 1.0
+
+[node name="WalkToHelper" type="Marker2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="WalkToHelper"]
+offset_left = -2.5
+offset_top = -2.5
+offset_right = 2.5
+offset_bottom = 2.5
+color = Color(0, 1, 1, 1)
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -112)
+sprite_frames = SubResource("SpriteFrames_p7bnq")
+animation = &"idel"
+
+[node name="DialogPos" type="Marker2D" parent="."]
+visible = false
+position = Vector2(0, -248)
