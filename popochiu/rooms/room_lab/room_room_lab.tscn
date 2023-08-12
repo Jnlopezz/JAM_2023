@@ -1,20 +1,129 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl8nf1k2jvn2d"]
+[gd_scene load_steps=10 format=3 uid="uid://cl8nf1k2jvn2d"]
 
 [ext_resource type="Script" path="res://popochiu/rooms/room_lab/room_room_lab.gd" id="1_wkwtt"]
 [ext_resource type="PackedScene" uid="uid://uvtywyf3pq1a" path="res://addons/popochiu/engine/objects/walkable_area/popochiu_walkable_area.tscn" id="2_2xnmt"]
+[ext_resource type="Script" path="res://popochiu/rooms/room_lab/walkable_areas/box/Npcs.gd" id="2_4qwv4"]
 [ext_resource type="PackedScene" uid="uid://do1k681xt48cm" path="res://addons/popochiu/engine/objects/prop/popochiu_prop.tscn" id="2_oesxg"]
 [ext_resource type="Script" path="res://popochiu/rooms/room_lab/walkable_areas/box/walkable_area_box.gd" id="3_jtpfe"]
 [ext_resource type="PackedScene" uid="uid://l66d1cmmsenj" path="res://popochiu/characters/human/character_human.tscn" id="4_5akd3"]
 [ext_resource type="Texture2D" uid="uid://dmp16rettl66i" path="res://popochiu/rooms/room_lab/props/lab_bg/image.png" id="4_kg74n"]
+[ext_resource type="PackedScene" uid="uid://711pdhv4w4ut" path="res://popochiu/characters/human_npc_1/character_human_npc_1.tscn" id="7_vik2f"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_u53dl"]
-vertices = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10, -198, 291, 314, 293, 569, 591, -448, 584)
+vertices = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10, -188, 307, 302, 306, 542, 581, -422, 583)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10), PackedVector2Array(-198, 291, 314, 293, 569, 591, -448, 584)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10), PackedVector2Array(-188, 307, 302, 306, 542, 581, -422, 583)])
 
 [node name="RoomRoom_Lab" type="Node2D"]
 script = ExtResource("1_wkwtt")
 script_name = "Room_Lab"
+
+[node name="Box2" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Box2"]
+position = Vector2(1047, 887)
+
+[node name="Marker2D2" type="Marker2D" parent="Box2"]
+position = Vector2(1230, 1124)
+
+[node name="Marker2D3" type="Marker2D" parent="Box2"]
+position = Vector2(1208, 884)
+
+[node name="Marker2D4" type="Marker2D" parent="Box2"]
+position = Vector2(1319, 1102)
+
+[node name="Marker2D5" type="Marker2D" parent="Box2"]
+position = Vector2(1076, 993)
+
+[node name="Marker2D6" type="Marker2D" parent="Box2"]
+position = Vector2(1185, 955)
+
+[node name="Marker2D7" type="Marker2D" parent="Box2"]
+position = Vector2(1127, 906)
+
+[node name="Marker2D8" type="Marker2D" parent="Box2"]
+position = Vector2(1206, 1020)
+
+[node name="Marker2D9" type="Marker2D" parent="Box2"]
+position = Vector2(1268, 1034)
+
+[node name="Marker2D10" type="Marker2D" parent="Box2"]
+position = Vector2(1241, 966)
+
+[node name="Marker2D11" type="Marker2D" parent="Box2"]
+position = Vector2(970, 882)
+
+[node name="Marker2D12" type="Marker2D" parent="Box2"]
+position = Vector2(1063, 949)
+
+[node name="Marker2D13" type="Marker2D" parent="Box2"]
+position = Vector2(1130, 1009)
+
+[node name="Marker2D14" type="Marker2D" parent="Box2"]
+position = Vector2(1167, 1091)
+
+[node name="Marker2D15" type="Marker2D" parent="Box2"]
+position = Vector2(1331, 1023)
+
+[node name="Marker2D16" type="Marker2D" parent="Box2"]
+position = Vector2(1123, 1054)
+
+[node name="Npcs1" type="Node2D" parent="."]
+script = ExtResource("2_4qwv4")
+flips_when = 1
+character_name = "HumanNPC1"
+
+[node name="Box1" type="Node2D" parent="Npcs1"]
+
+[node name="Marker2D" type="Marker2D" parent="Npcs1/Box1"]
+position = Vector2(37, 1100)
+
+[node name="Marker2D2" type="Marker2D" parent="Npcs1/Box1"]
+position = Vector2(78, 1015)
+
+[node name="Marker2D3" type="Marker2D" parent="Npcs1/Box1"]
+position = Vector2(31, 899)
+
+[node name="Marker2D4" type="Marker2D" parent="Npcs1/Box1"]
+position = Vector2(195, 985)
+
+[node name="Marker2D5" type="Marker2D" parent="Npcs1/Box1"]
+position = Vector2(43, 974)
+
+[node name="Marker2D6" type="Marker2D" parent="Npcs1/Box1"]
+position = Vector2(-66, 1123)
+
+[node name="Marker2D7" type="Marker2D" parent="Npcs1/Box1"]
+position = Vector2(-52, 1011)
+
+[node name="Marker2D8" type="Marker2D" parent="Npcs1/Box1"]
+position = Vector2(146, 954)
+
+[node name="Marker2D9" type="Marker2D" parent="Npcs1/Box1"]
+position = Vector2(121, 1039)
+
+[node name="Marker2D10" type="Marker2D" parent="Npcs1/Box1"]
+position = Vector2(115, 895)
+
+[node name="Marker2D11" type="Marker2D" parent="Npcs1/Box1"]
+position = Vector2(-35, 923)
+
+[node name="Marker2D12" type="Marker2D" parent="Npcs1/Box1"]
+position = Vector2(-3, 1052)
+
+[node name="Marker2D13" type="Marker2D" parent="Npcs1/Box1"]
+position = Vector2(-159, 1100)
+
+[node name="Marker2D14" type="Marker2D" parent="Npcs1/Box1"]
+position = Vector2(76, 1120)
+
+[node name="Marker2D15" type="Marker2D" parent="Npcs1/Box1"]
+position = Vector2(187, 926)
+
+[node name="Marker2D16" type="Marker2D" parent="Npcs1/Box1"]
+position = Vector2(264, 887)
+
+[node name="Timer" type="Timer" parent="Npcs1"]
 
 [node name="WalkableAreas" type="Node2D" parent="."]
 
@@ -49,3 +158,6 @@ cursor = 1
 
 [node name="CharacterHuman *" parent="Characters" instance=ExtResource("4_5akd3")]
 position = Vector2(770, 969)
+
+[node name="CharacterHumanNPC1 *" parent="Characters" instance=ExtResource("7_vik2f")]
+position = Vector2(117, 979)

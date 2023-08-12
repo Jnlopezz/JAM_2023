@@ -1,0 +1,95 @@
+[gd_scene load_steps=10 format=3 uid="uid://711pdhv4w4ut"]
+
+[ext_resource type="Script" path="res://popochiu/characters/human_npc_1/character_human_npc_1.gd" id="1_frxgl"]
+[ext_resource type="Texture2D" uid="uid://d17drs72w2hox" path="res://popochiu/characters/human/character_sheet.png" id="2_kppbk"]
+[ext_resource type="Texture2D" uid="uid://s0il388qmmw0" path="res://popochiu/characters/human/Human.png" id="2_v6ats"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pklr"]
+atlas = ExtResource("2_kppbk")
+region = Rect2(132, 0, 132, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgdcx"]
+atlas = ExtResource("2_v6ats")
+region = Rect2(0, 0, 113, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71kyi"]
+atlas = ExtResource("2_v6ats")
+region = Rect2(226, 0, 113, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd5q2"]
+atlas = ExtResource("2_v6ats")
+region = Rect2(113, 0, 113, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1ywe"]
+atlas = ExtResource("2_v6ats")
+region = Rect2(339, 0, 113, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7ndd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pklr")
+}],
+"loop": true,
+"name": &"hand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgdcx")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71kyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd5q2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1ywe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd5q2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="CharacterHumanNPC1" type="Area2D"]
+script = ExtResource("1_frxgl")
+script_name = "HumanNPC1"
+description = "Human Npc 1"
+cursor = 8
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="BaselineHelper" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(-10000, 0, 10000, 0)
+width = 1.0
+
+[node name="WalkToHelper" type="Marker2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="WalkToHelper"]
+offset_left = -2.5
+offset_top = -2.5
+offset_right = 2.5
+offset_bottom = 2.5
+color = Color(0, 1, 1, 1)
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-9, -112)
+sprite_frames = SubResource("SpriteFrames_q7ndd")
+animation = &"hand"
+
+[node name="DialogPos" type="Marker2D" parent="."]
+visible = false
+position = Vector2(-1, -240)

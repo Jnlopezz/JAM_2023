@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx7qa5m1qbts8"]
+[gd_scene load_steps=4 format=3 uid="uid://cx7qa5m1qbts8"]
 
 [ext_resource type="Script" path="res://popochiu/rooms/intro/room_intro.gd" id="1_bi4dn"]
 [ext_resource type="PackedScene" uid="uid://do1k681xt48cm" path="res://addons/popochiu/engine/objects/prop/popochiu_prop.tscn" id="2_u502r"]
-[ext_resource type="Script" path="res://addons/popochiu/engine/objects/prop/popochiu_prop.gd" id="3_kr2g6"]
 [ext_resource type="Texture2D" uid="uid://h1rdpqpxh8jx" path="res://popochiu/rooms/intro/props/introbg/pantalla_de_inicio.png" id="4_ynmrs"]
 
 [node name="RoomIntro" type="Node2D"]
@@ -18,9 +17,8 @@ offset_right = 1152.0
 offset_bottom = 1152.0
 color = Color(0.113725, 0.113725, 0.113725, 1)
 
-[node name="Introbg" type="Area2D" parent="Props" instance=ExtResource("2_u502r")]
+[node name="Introbg" parent="Props" instance=ExtResource("2_u502r")]
 position = Vector2(576, 576)
-script = ExtResource("3_kr2g6")
 texture = ExtResource("4_ynmrs")
 script_name = "Introbg"
 description = "Introbg"

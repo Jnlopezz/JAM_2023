@@ -21,7 +21,7 @@ offset_right = 2.5
 offset_bottom = 2.5
 color = Color(0, 1, 1, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 
 [node name="DialogPos" type="Marker2D" parent="."]

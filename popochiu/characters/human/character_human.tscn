@@ -1,10 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://l66d1cmmsenj"]
+[gd_scene load_steps=8 format=3 uid="uid://l66d1cmmsenj"]
 
 [ext_resource type="Script" path="res://popochiu/characters/human/character_human.gd" id="1_4cv35"]
-[ext_resource type="Texture2D" uid="uid://cq4i301gk3c63" path="res://popochiu/characters/human/Human.jpeg" id="2_cmfpf"]
+[ext_resource type="Texture2D" uid="uid://s0il388qmmw0" path="res://popochiu/characters/human/Human.png" id="2_rumij"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0umg"]
+atlas = ExtResource("2_rumij")
+region = Rect2(0, 0, 113, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0fb6"]
+atlas = ExtResource("2_rumij")
+region = Rect2(226, 0, 113, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpklp"]
+atlas = ExtResource("2_rumij")
+region = Rect2(113, 0, 113, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kedp5"]
+atlas = ExtResource("2_rumij")
+region = Rect2(339, 0, 113, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_re8m6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0umg")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0fb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpklp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kedp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpklp")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="CharacterHuman" type="Area2D"]
 script = ExtResource("1_4cv35")
+flips_when = 1
 script_name = "Human"
 description = "Human"
 cursor = 8
@@ -27,11 +72,10 @@ offset_right = 2.5
 offset_bottom = 2.5
 color = Color(0, 1, 1, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -152)
-scale = Vector2(0.17, 0.17)
-texture = ExtResource("2_cmfpf")
+position = Vector2(-8, -120)
+sprite_frames = SubResource("SpriteFrames_re8m6")
 
 [node name="DialogPos" type="Marker2D" parent="."]
 visible = false

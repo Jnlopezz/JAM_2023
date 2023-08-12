@@ -68,12 +68,11 @@ func idle() -> void:
 		await get_tree().process_frame
 		return
 	
-	if has_node('Sprite2D'):
-		match flips_when:
-			FlipsWhen.MOVING_LEFT:
-				$Sprite2D.flip_h = _looking_dir == Looking.LEFT
-			FlipsWhen.MOVING_RIGHT:
-				$Sprite2D.flip_h = _looking_dir == Looking.RIGHT
+	match flips_when:
+		FlipsWhen.MOVING_LEFT:
+			$Sprite2D.flip_h = _looking_dir == Looking.LEFT
+		FlipsWhen.MOVING_RIGHT:
+			$Sprite2D.flip_h = _looking_dir == Looking.RIGHT
 	
 	# Call the virtual that plays the idle animation
 	_play_idle()
@@ -89,12 +88,11 @@ func walk(target_pos: Vector2) -> void:
 	is_moving = true
 	_looking_dir = Looking.LEFT if target_pos.x < position.x else Looking.RIGHT
 	
-	if has_node('Sprite2D'):
-		match flips_when:
-			FlipsWhen.MOVING_LEFT:
-				$Sprite2D.flip_h = target_pos.x < position.x
-			FlipsWhen.MOVING_RIGHT:
-				$Sprite2D.flip_h = target_pos.x > position.x
+	match flips_when:
+		FlipsWhen.MOVING_LEFT:
+			$Sprite2D.flip_h = target_pos.x < position.x
+		FlipsWhen.MOVING_RIGHT:
+			$Sprite2D.flip_h = target_pos.x > position.x
 	
 	if E.cutscene_skipped:
 		is_moving = false
@@ -116,6 +114,8 @@ func walk(target_pos: Vector2) -> void:
 	
 	# Trigger the signal for the room  to start moving the character
 	started_walk_to.emit(self, position, target_pos)
+	
+	var is_character_finished := false
 	
 	await C.character_move_ended
 	

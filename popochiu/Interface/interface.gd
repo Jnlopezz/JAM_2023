@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 func _on_intro_triggered() -> void:
-	btn_start.pressed.connect(self._button_pressed)
+	btn_start.pressed.connect(_button_pressed)
 	$Intro.show()
 
 

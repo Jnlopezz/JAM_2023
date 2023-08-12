@@ -16,6 +16,7 @@ var state: Data = load('res://popochiu/rooms/room_lab/room_room_lab.tres')
 func _on_room_entered() -> void:
 	$Characters.y_sort_enabled = false
 	$Props.y_sort_enabled = false
+	$Npcs1.start_npcs()
 
 
 # What happens when the room changing transition finishes. At this point the room
