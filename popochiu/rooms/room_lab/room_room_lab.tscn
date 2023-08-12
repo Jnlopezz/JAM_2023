@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl8nf1k2jvn2d"]
+
+[ext_resource type="Script" path="res://popochiu/rooms/room_lab/room_room_lab.gd" id="1_wkwtt"]
+[ext_resource type="PackedScene" uid="uid://do1k681xt48cm" path="res://addons/popochiu/engine/objects/prop/popochiu_prop.tscn" id="2_oesxg"]
+[ext_resource type="Texture2D" uid="uid://dmp16rettl66i" path="res://popochiu/rooms/room_lab/props/lab_bg/image.png" id="4_kg74n"]
+
+[node name="RoomRoom_Lab" type="Node2D"]
+script = ExtResource("1_wkwtt")
+script_name = "Room_Lab"
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Lab_Bg" parent="Props" instance=ExtResource("2_oesxg")]
+position = Vector2(576, 580)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("4_kg74n")
+script_name = "Lab_Bg"
+description = "Lab Bg"
+clickable = false
+cursor = 1
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Characters" type="Node2D" parent="."]

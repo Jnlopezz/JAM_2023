@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://clialaoiuygpx"]
+
+[ext_resource type="Script" path="res://popochiu/rooms/room_lab/room_room_lab_state.gd" id="1_10w24"]
+
+[resource]
+resource_name = "Room_Lab"
+script = ExtResource("1_10w24")
+script_name = "Room_Lab"
+scene = "res://popochiu/rooms/room_lab/room_room_lab.tscn"
+visited = false
+visited_first_time = false
+visited_times = 0
