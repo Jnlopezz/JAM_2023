@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://kub4rsyhv2i4"]
+
+[ext_resource type="Script" path="res://popochiu/rooms/intro/room_intro_state.gd" id="1_sptfb"]
+
+[resource]
+resource_name = "Intro"
+script = ExtResource("1_sptfb")
+script_name = "Intro"
+scene = "res://popochiu/rooms/intro/room_intro.tscn"
+visited = false
+visited_first_time = false
+visited_times = 0

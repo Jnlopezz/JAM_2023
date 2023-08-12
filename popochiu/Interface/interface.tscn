@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://by3x25yrf5o25"]
+
+[ext_resource type="Script" path="res://popochiu/Interface/interface.gd" id="1_aj6ag"]
+[ext_resource type="FontFile" uid="uid://dixh1egf7k2fb" path="res://addons/popochiu/fonts/monkeyisland_1991.ttf" id="1_h4xvr"]
+
+[sub_resource type="Theme" id="Theme_rxgqi"]
+default_font = ExtResource("1_h4xvr")
+default_font_size = 50
+Label/colors/font_color = Color(0.105882, 0.054902, 0.0627451, 1)
+
+[sub_resource type="Theme" id="Theme_ax1qe"]
+default_font = ExtResource("1_h4xvr")
+default_font_size = 150
+
+[node name="Interface" type="CanvasLayer"]
+script = ExtResource("1_aj6ag")
+
+[node name="Scores" type="CanvasLayer" parent="."]
+
+[node name="Gain" type="HBoxContainer" parent="Scores"]
+offset_left = 312.0
+offset_right = 759.0
+offset_bottom = 40.0
+theme = SubResource("Theme_rxgqi")
+alignment = 1
+
+[node name="Reward" type="Label" parent="Scores/Gain"]
+layout_mode = 2
+text = "Rewad"
+
+[node name="R_value" type="Label" parent="Scores/Gain"]
+layout_mode = 2
+text = "000"
+
+[node name="Reward2" type="Label" parent="Scores/Gain"]
+layout_mode = 2
+text = "Castigo"
+
+[node name="R_value2" type="Label" parent="Scores/Gain"]
+layout_mode = 2
+text = "000"
+
+[node name="Intro" type="CanvasLayer" parent="."]
+
+[node name="start" type="Button" parent="Intro"]
+offset_left = 235.0
+offset_top = 424.0
+offset_right = 891.0
+offset_bottom = 749.0
+theme = SubResource("Theme_ax1qe")
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_colors/font_pressed_color = Color(0.792157, 0, 0.619608, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+text = "EMPEZAR"
+flat = true
