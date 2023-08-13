@@ -9,7 +9,7 @@ extends PopochiuCharacter
 const Data := preload('character_human_npc_1_state.gd')
 
 var state: Data = load('res://popochiu/characters/human_npc_1/character_human_npc_1.tres')
-
+var current_dialog := 0
 
 # ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ VIRTUAL ░░░░
 # When the room in which this node is located finishes being added to the tree
@@ -19,24 +19,25 @@ func _on_room_set() -> void:
 
 # When the node is clicked
 func _on_click() -> void:
+	await C.HumanNPC1.say('“Aprieta el botón”, es lo único que nos dicen')
+	await C.HumanNPC1.say('cada mañana al levantarnos')
+	await C.HumanNPC1.say('pero lo único que conseguimos son monedas de oro')
+	await C.HumanNPC1.say('que no sirven…')
+	
 	var response: PopochiuDialogOption = await D.show_inline_dialog(
-		'“Aprieta el botón”, es lo único que nos dicen cada mañana al levantarnos',
+		'Quizás “aprieta el botón” se refiere a ...',
 		[
-			'a Dinosaur', 'a Popochiu'
+			'Que debes apretarlo muchas veces', 'A que deberíamos rendirnos con esto'
 		]
 	)
 	
 	match response.id:
 		'0':
-			Globals.jurassic_park_branch = Globals.Branch.DINOSAURS
-			$Props.get_node('Dinosaur').show()
-			C.Grandpa.play('01_up')
-			await C.Narrator.say('A damned mosquito bit a Dinosaur')
+			await C.HumanNPC1.say('Es lo que he estado haciendo, Habitante 407')
+			await C.HumanNPC1.say('si lo aprieto lo suficiente podré escapar de aquí.')
 		'1':
-			Globals.jurassic_park_branch = Globals.Branch.POPOCHIUS
-			$Props.get_node('Popochiu').show()
-			C.Grandpa.play('01_up')
-			await C.Narrator.say('A damned mosquito bit a Popochiu')
+			await C.HumanNPC1.say('¿Y morir a causa de las electrificaciones?')
+			await C.HumanNPC1.say('pésima idea, Habitante 407')
 
 
 # When the node is right clicked

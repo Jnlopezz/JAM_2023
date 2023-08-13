@@ -14,8 +14,8 @@ var state: Data = load('res://popochiu/rooms/room_lab/room_room_lab.tres')
 # What happens when Popochiu loads the room. At this point the room is in the
 # tree but it is not visible
 func _on_room_entered() -> void:
-	$Characters.y_sort_enabled = false
-	$Props.y_sort_enabled = false
+	$Characters.y_sort_enabled = true
+	$Props.y_sort_enabled = true
 	$Npcs1.start_npcs()
 	$Npcs2.start_npcs()
 
@@ -23,7 +23,7 @@ func _on_room_entered() -> void:
 # What happens when the room changing transition finishes. At this point the room
 # is visible.
 func _on_room_transition_finished() -> void:
-	pass
+	await C.Narra.say('Aprieta el botón!')
 
 
 # What happens before Popochiu unloads the room.

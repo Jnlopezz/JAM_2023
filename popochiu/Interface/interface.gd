@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var dialog_menu: PanelContainer = $Dialogs/DialogMenu
 @onready var rtl_dialog: RichTextLabel = $Dialogs/RtlDialog
 @onready var rtl_narrator: RichTextLabel = $Dialogs/RtlNarrador
+@onready var btn_continue: TextureButton = $Dialogs/BtnContinue
 
 # ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ GODOT ░░░░
 func _ready() -> void:
@@ -14,6 +15,7 @@ func _ready() -> void:
 	G.title_setted.connect(_set_dialog_menu_title)
 	C.character_spoke.connect(_show_character_text)
 	dialog_menu.selected.connect(_on_selected)
+	btn_continue.pressed.connect(_on_continue_pressed)
 
 
 func _on_intro_triggered() -> void:
@@ -44,15 +46,25 @@ func _on_selected() -> void:
 	dialog_menu_title.text = ""
 	rtl_dialog.text = ''
 	rtl_narrator.text = ''
+	_on_continue_pressed()
 
 
 func _show_character_text(c: PopochiuCharacter, m: String) -> void:
 	var text := '[center]%s[/center]'
 	
 	match c:
-		C.Narrator:
+		C.Narra:
 			rtl_dialog.text = ''
 			rtl_narrator.text = text % m
 		_:
 			rtl_narrator.text = ''
 			rtl_dialog.text = text % ('%s: %s' % [c.description, m])
+	
+	btn_continue.show()
+
+
+func _on_continue_pressed() -> void:
+	rtl_dialog.text = ''
+	rtl_narrator.text = ''
+	btn_continue.hide()
+	G.continue_clicked.emit()

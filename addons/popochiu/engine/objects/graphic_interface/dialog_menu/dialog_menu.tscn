@@ -12,7 +12,7 @@ Label/fonts/font = ExtResource("1_r41lr")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s524m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2awe"]
-bg_color = Color(0, 0, 0.6, 1)
+bg_color = Color(0.607843, 0.603922, 0.635294, 1)
 
 [node name="DialogMenu" type="PanelContainer"]
 anchors_preset = 15

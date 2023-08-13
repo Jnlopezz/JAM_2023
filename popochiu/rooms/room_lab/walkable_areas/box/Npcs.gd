@@ -25,8 +25,9 @@ func walk(target_pos: Vector2) -> void:
 	npc.walk(target_pos)
 	#TODO : start timer y subir manito
 
+
 func _on_time_out() -> void:
 	var child = randi() % $Box.get_child_count()
-	var pos = $Box1.get_child(child).global_position
+	var pos = $Box.get_child(child).global_position
 	walk(pos)
 	

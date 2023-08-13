@@ -39,7 +39,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_h00n2")
 }],
 "loop": true,
-"name": &"idel",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -62,14 +62,15 @@ animations = [{
 
 [node name="CharacterHumanNPC2" type="Area2D"]
 script = ExtResource("1_of4p8")
+is_player = null
 flips_when = 1
 ignore_walkable_areas = true
 script_name = "HumanNPC2"
-description = "Human Npc 2"
+description = "H 701"
 cursor = 8
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+polygon = PackedVector2Array(-25, -216, 56, -215, 34, 8, -18, 9)
 
 [node name="BaselineHelper" type="Line2D" parent="."]
 visible = false
@@ -90,7 +91,7 @@ color = Color(0, 1, 1, 1)
 texture_filter = 1
 position = Vector2(0, -112)
 sprite_frames = SubResource("SpriteFrames_p7bnq")
-animation = &"idel"
+animation = &"idle"
 
 [node name="DialogPos" type="Marker2D" parent="."]
 visible = false

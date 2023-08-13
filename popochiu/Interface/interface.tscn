@@ -13,6 +13,7 @@ default_font_size = 150
 script = ExtResource("1_aj6ag")
 
 [node name="Scores" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Gain" type="HBoxContainer" parent="Scores"]
 offset_left = 312.0
@@ -54,6 +55,7 @@ offset_top = 992.0
 offset_right = 1157.0
 offset_bottom = 1080.0
 theme = ExtResource("2_sho0e")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 fit_content = true
 
@@ -62,8 +64,14 @@ offset_top = 163.0
 offset_right = 1157.0
 offset_bottom = 251.0
 theme = ExtResource("2_sho0e")
+theme_override_colors/default_color = Color(0.027451, 0.027451, 0.027451, 1)
 bbcode_enabled = true
 fit_content = true
+
+[node name="BtnContinue" type="TextureButton" parent="Dialogs"]
+offset_right = 1151.0
+offset_bottom = 1152.0
+focus_mode = 0
 
 [node name="Intro" type="CanvasLayer" parent="."]
 

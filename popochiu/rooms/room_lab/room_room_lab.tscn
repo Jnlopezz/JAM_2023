@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cl8nf1k2jvn2d"]
+[gd_scene load_steps=19 format=3 uid="uid://cl8nf1k2jvn2d"]
 
 [ext_resource type="Script" path="res://popochiu/rooms/room_lab/room_room_lab.gd" id="1_wkwtt"]
 [ext_resource type="PackedScene" uid="uid://uvtywyf3pq1a" path="res://addons/popochiu/engine/objects/walkable_area/popochiu_walkable_area.tscn" id="2_2xnmt"]
@@ -15,11 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://do11sttsj8q55" path="res://popochiu/rooms/room_lab/props/walker/AssetCaminadora.png" id="10_e6psd"]
 [ext_resource type="Script" path="res://popochiu/rooms/room_lab/props/bed/prop_bed.gd" id="11_ee8fu"]
 [ext_resource type="Texture2D" uid="uid://c0bwin7bsyw2e" path="res://popochiu/rooms/room_lab/props/bed/AssetCama.png" id="12_vdeyn"]
+[ext_resource type="PackedScene" uid="uid://lf5py5f18hqa" path="res://popochiu/characters/narra/character_narra.tscn" id="13_2au4n"]
+[ext_resource type="PackedScene" uid="uid://dek7uume1grf0" path="res://popochiu/characters/dr_rajoy/character_dr_rajoy.tscn" id="13_begvy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_u53dl"]
-vertices = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10, -188, 307, 302, 306, 542, 581, -422, 583)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10), PackedVector2Array(-188, 307, 302, 306, 542, 581, -422, 583)])
+vertices = PackedVector2Array(-48, 381, -250.299, 380.481, -213, 338, -62, 341, 542, 581, -422, 583, -358, 502, -79, 501, -23, 303, 302, 306)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 4, 7, 0), PackedInt32Array(0, 3, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-213, 338, -62, 341, -23, 303, 302, 306, 542, 581, -422, 583, -358, 502, -79, 501, -48, 381, -250.299, 380.481)])
 
 [node name="RoomRoom_Lab" type="Node2D"]
 script = ExtResource("1_wkwtt")
@@ -50,6 +52,7 @@ position = Vector2(146, 1037)
 position = Vector2(250, 888)
 
 [node name="Timer" type="Timer" parent="Npcs1"]
+one_shot = true
 
 [node name="Npcs2" type="Node2D" parent="."]
 script = ExtResource("2_4qwv4")
@@ -76,6 +79,7 @@ position = Vector2(1214, 885)
 position = Vector2(1202, 1003)
 
 [node name="Timer" type="Timer" parent="Npcs2"]
+one_shot = true
 
 [node name="WalkableAreas" type="Node2D" parent="."]
 
@@ -92,6 +96,7 @@ navigation_polygon = SubResource("NavigationPolygon_u53dl")
 [node name="Props" type="Node2D" parent="."]
 
 [node name="Lab_Bg" parent="Props" instance=ExtResource("2_oesxg")]
+z_index = -1
 position = Vector2(576, 580)
 texture = ExtResource("6_ldivy")
 script_name = "Lab_Bg"
@@ -149,12 +154,18 @@ polygon = PackedVector2Array(9, -61, 104, -58, 67, 60, -113, 62, -97, 33)
 
 [node name="Characters" type="Node2D" parent="."]
 
+[node name="CharacterNarra *" parent="Characters" instance=ExtResource("13_2au4n")]
+
+[node name="CharacterDrRajoy *" parent="Characters" instance=ExtResource("13_begvy")]
+position = Vector2(612, 345)
+
 [node name="CharacterHuman *" parent="Characters" instance=ExtResource("4_5akd3")]
-position = Vector2(770, 969)
+position = Vector2(965, 1131)
 is_player = false
 
 [node name="CharacterHumanNPC1 *" parent="Characters" instance=ExtResource("7_vik2f")]
-position = Vector2(117, 979)
+position = Vector2(106, 907)
 
 [node name="CharacterHumanNPC2 *" parent="Characters" instance=ExtResource("9_sg3po")]
-position = Vector2(1252, 1052)
+position = Vector2(992, 893)
+is_player = false
