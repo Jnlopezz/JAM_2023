@@ -89,9 +89,11 @@ is_player = true
 flips_when = 1
 script_name = "Human"
 description = "407"
+clickable = false
 cursor = 8
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
 [node name="BaselineHelper" type="Line2D" parent="."]

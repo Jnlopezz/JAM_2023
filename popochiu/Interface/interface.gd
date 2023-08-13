@@ -71,7 +71,6 @@ func _on_dialog_ended() -> void:
 
 
 func _show_character_text(c: PopochiuCharacter, m: String) -> void:
-	
 	var text := '[center]%s[/center]'
 	match c:
 		C.Narra:
@@ -82,7 +81,8 @@ func _show_character_text(c: PopochiuCharacter, m: String) -> void:
 			bg_dialog_room.show()
 			rtl_narrator.text = ''
 			rtl_dialog.text = text % ('%s: %s' % [c.description, m])
-			tween.stop()
+			if not tween == null:
+				tween.pause()
 			timer.hide()
 	
 	btn_continue.show()

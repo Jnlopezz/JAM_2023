@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cl8nf1k2jvn2d"]
+[gd_scene load_steps=32 format=3 uid="uid://cl8nf1k2jvn2d"]
 
 [ext_resource type="Script" path="res://popochiu/rooms/room_lab/room_room_lab.gd" id="1_wkwtt"]
 [ext_resource type="PackedScene" uid="uid://uvtywyf3pq1a" path="res://addons/popochiu/engine/objects/walkable_area/popochiu_walkable_area.tscn" id="2_2xnmt"]
@@ -28,6 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://c8rftatcso8eh" path="res://Audios/sfx_boton.ogg" id="25_viuxv"]
 [ext_resource type="AudioStream" uid="uid://b866a72tt5abh" path="res://Audios/sfx_pasos_02.ogg" id="26_kvl04"]
 [ext_resource type="AudioStream" uid="uid://tblguttbpbxy" path="res://Audios/sfx_visagra_close.ogg" id="27_qsb15"]
+[ext_resource type="AudioStream" uid="uid://v4n0faxgh1vx" path="res://Audios/hey.ogg" id="29_m2qyu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_u53dl"]
 vertices = PackedVector2Array(296, 574, -458, 576, -216, 237, 217, 239, 279, 486, 350, 441)
@@ -329,5 +330,9 @@ stream = ExtResource("27_qsb15")
 
 [node name="Visagra_open" type="AudioStreamPlayer" parent="AudioManager/MX"]
 stream = ExtResource("27_qsb15")
+
+[node name="hey" type="AudioStreamPlayer" parent="AudioManager/MX"]
+stream = ExtResource("29_m2qyu")
+volume_db = -21.258
 
 [node name="FX" type="Node2D" parent="AudioManager"]

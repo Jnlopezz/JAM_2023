@@ -8,6 +8,7 @@ signal botton_done
 # ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ VIRTUAL ░░░░
 # When the node is clicked
 func _on_click() -> void:
+	C.Human.walk(self.global_position)
 	Globals.audio.emit('play', 'MX', 'Button')
 	emit_signal('botton_done')
 

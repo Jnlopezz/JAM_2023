@@ -21,6 +21,7 @@ func _on_room_set() -> void:
 # When the node is clicked
 func _on_click() -> void:
 	if not hand_raised: return
+	Globals.audio.emit('stop', 'MX', 'Steps')
 	current_dialog = wrapi(current_dialog +1, 0, 3)
 	match current_dialog:
 		0:
@@ -99,6 +100,7 @@ func _play_idle() -> void:
 
 
 func _play_hand() -> void:
+	Globals.audio.emit('play', 'MX', 'hey')
 	anim_player.play("hand")
 	
 # Use it to play the walk animation for the character
