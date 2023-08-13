@@ -1,12 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://by3x25yrf5o25"]
+[gd_scene load_steps=6 format=3 uid="uid://by3x25yrf5o25"]
 
 [ext_resource type="Script" path="res://popochiu/Interface/interface.gd" id="1_aj6ag"]
 [ext_resource type="FontFile" uid="uid://dixh1egf7k2fb" path="res://addons/popochiu/fonts/monkeyisland_1991.ttf" id="1_h4xvr"]
-
-[sub_resource type="Theme" id="Theme_rxgqi"]
-default_font = ExtResource("1_h4xvr")
-default_font_size = 50
-Label/colors/font_color = Color(0.105882, 0.054902, 0.0627451, 1)
+[ext_resource type="Theme" uid="uid://1mmbq7vss6vw" path="res://Fonts/interface.tres" id="2_sho0e"]
+[ext_resource type="PackedScene" uid="uid://dhsfl8ot4j5fj" path="res://addons/popochiu/engine/objects/graphic_interface/dialog_menu/dialog_menu.tscn" id="3_424gq"]
 
 [sub_resource type="Theme" id="Theme_ax1qe"]
 default_font = ExtResource("1_h4xvr")
@@ -21,7 +18,7 @@ script = ExtResource("1_aj6ag")
 offset_left = 312.0
 offset_right = 759.0
 offset_bottom = 40.0
-theme = SubResource("Theme_rxgqi")
+theme = ExtResource("2_sho0e")
 alignment = 1
 
 [node name="Reward" type="Label" parent="Scores/Gain"]
@@ -39,6 +36,34 @@ text = "Castigo"
 [node name="R_value2" type="Label" parent="Scores/Gain"]
 layout_mode = 2
 text = "000"
+
+[node name="Dialogs" type="CanvasLayer" parent="."]
+
+[node name="Dialog_title" type="Label" parent="Dialogs"]
+offset_top = 1111.0
+offset_right = 1153.0
+offset_bottom = 1152.0
+theme = ExtResource("2_sho0e")
+text = "fdhfhgdfghfdgh"
+horizontal_alignment = 1
+
+[node name="DialogMenu" parent="Dialogs" instance=ExtResource("3_424gq")]
+
+[node name="RtlDialog" type="RichTextLabel" parent="Dialogs"]
+offset_top = 992.0
+offset_right = 1157.0
+offset_bottom = 1080.0
+theme = ExtResource("2_sho0e")
+bbcode_enabled = true
+fit_content = true
+
+[node name="RtlNarrador" type="RichTextLabel" parent="Dialogs"]
+offset_top = 163.0
+offset_right = 1157.0
+offset_bottom = 251.0
+theme = ExtResource("2_sho0e")
+bbcode_enabled = true
+fit_content = true
 
 [node name="Intro" type="CanvasLayer" parent="."]
 

@@ -8,8 +8,6 @@ enum FlipsWhen { NONE, MOVING_RIGHT, MOVING_LEFT }
 
 
 @onready var timer: Timer = $Timer
-
-@export var flips_when: FlipsWhen = FlipsWhen.NONE
 @export var character_name: String = ''
 
 func start_npcs() -> void:
@@ -28,7 +26,7 @@ func walk(target_pos: Vector2) -> void:
 	#TODO : start timer y subir manito
 
 func _on_time_out() -> void:
-	var child = randi() % $Box1.get_child_count()
+	var child = randi() % $Box.get_child_count()
 	var pos = $Box1.get_child(child).global_position
 	walk(pos)
 	

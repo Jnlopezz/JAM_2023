@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cl8nf1k2jvn2d"]
+[gd_scene load_steps=17 format=3 uid="uid://cl8nf1k2jvn2d"]
 
 [ext_resource type="Script" path="res://popochiu/rooms/room_lab/room_room_lab.gd" id="1_wkwtt"]
 [ext_resource type="PackedScene" uid="uid://uvtywyf3pq1a" path="res://addons/popochiu/engine/objects/walkable_area/popochiu_walkable_area.tscn" id="2_2xnmt"]
@@ -6,9 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://do1k681xt48cm" path="res://addons/popochiu/engine/objects/prop/popochiu_prop.tscn" id="2_oesxg"]
 [ext_resource type="Script" path="res://popochiu/rooms/room_lab/walkable_areas/box/walkable_area_box.gd" id="3_jtpfe"]
 [ext_resource type="PackedScene" uid="uid://l66d1cmmsenj" path="res://popochiu/characters/human/character_human.tscn" id="4_5akd3"]
-[ext_resource type="Texture2D" uid="uid://dmp16rettl66i" path="res://popochiu/rooms/room_lab/props/lab_bg/image.png" id="4_kg74n"]
+[ext_resource type="Texture2D" uid="uid://bfp15555x36n6" path="res://popochiu/rooms/room_lab/props/lab_bg/fondo_final.png" id="6_ldivy"]
+[ext_resource type="Script" path="res://popochiu/rooms/room_lab/props/dispenser/prop_dispenser.gd" id="7_ra71s"]
 [ext_resource type="PackedScene" uid="uid://711pdhv4w4ut" path="res://popochiu/characters/human_npc_1/character_human_npc_1.tscn" id="7_vik2f"]
+[ext_resource type="Texture2D" uid="uid://craocmvvl6v1r" path="res://popochiu/rooms/room_lab/props/dispenser/dispenser.png" id="8_sou7c"]
+[ext_resource type="Script" path="res://popochiu/rooms/room_lab/props/walker/prop_walker.gd" id="9_af061"]
 [ext_resource type="PackedScene" uid="uid://dhkj2r4qfpk5h" path="res://popochiu/characters/human_npc_2/character_human_npc_2.tscn" id="9_sg3po"]
+[ext_resource type="Texture2D" uid="uid://do11sttsj8q55" path="res://popochiu/rooms/room_lab/props/walker/AssetCaminadora.png" id="10_e6psd"]
+[ext_resource type="Script" path="res://popochiu/rooms/room_lab/props/bed/prop_bed.gd" id="11_ee8fu"]
+[ext_resource type="Texture2D" uid="uid://c0bwin7bsyw2e" path="res://popochiu/rooms/room_lab/props/bed/AssetCama.png" id="12_vdeyn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_u53dl"]
 vertices = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10, -188, 307, 302, 306, 542, 581, -422, 583)
@@ -21,54 +27,52 @@ script_name = "Room_Lab"
 
 [node name="Npcs1" type="Node2D" parent="."]
 script = ExtResource("2_4qwv4")
-flips_when = 1
 character_name = "HumanNPC1"
 
-[node name="Box1" type="Node2D" parent="Npcs1"]
+[node name="Box" type="Node2D" parent="Npcs1"]
 
-[node name="Marker2D" type="Marker2D" parent="Npcs1/Box1"]
+[node name="Marker2D" type="Marker2D" parent="Npcs1/Box"]
 position = Vector2(-67, 1007)
 
-[node name="Marker2D2" type="Marker2D" parent="Npcs1/Box1"]
+[node name="Marker2D2" type="Marker2D" parent="Npcs1/Box"]
 position = Vector2(39, 1120)
 
-[node name="Marker2D3" type="Marker2D" parent="Npcs1/Box1"]
+[node name="Marker2D3" type="Marker2D" parent="Npcs1/Box"]
 position = Vector2(-184, 1132)
 
-[node name="Marker2D4" type="Marker2D" parent="Npcs1/Box1"]
+[node name="Marker2D4" type="Marker2D" parent="Npcs1/Box"]
 position = Vector2(-142, 884)
 
-[node name="Marker2D5" type="Marker2D" parent="Npcs1/Box1"]
+[node name="Marker2D5" type="Marker2D" parent="Npcs1/Box"]
 position = Vector2(146, 1037)
 
-[node name="Marker2D6" type="Marker2D" parent="Npcs1/Box1"]
+[node name="Marker2D6" type="Marker2D" parent="Npcs1/Box"]
 position = Vector2(250, 888)
 
 [node name="Timer" type="Timer" parent="Npcs1"]
 
 [node name="Npcs2" type="Node2D" parent="."]
 script = ExtResource("2_4qwv4")
-flips_when = 1
-character_name = "HumanNPC1"
+character_name = "HumanNPC2"
 
-[node name="Box1" type="Node2D" parent="Npcs2"]
+[node name="Box" type="Node2D" parent="Npcs2"]
 
-[node name="Marker2D" type="Marker2D" parent="Npcs2/Box1"]
+[node name="Marker2D" type="Marker2D" parent="Npcs2/Box"]
 position = Vector2(1090, 966)
 
-[node name="Marker2D2" type="Marker2D" parent="Npcs2/Box1"]
+[node name="Marker2D2" type="Marker2D" parent="Npcs2/Box"]
 position = Vector2(1348, 1095)
 
-[node name="Marker2D3" type="Marker2D" parent="Npcs2/Box1"]
+[node name="Marker2D3" type="Marker2D" parent="Npcs2/Box"]
 position = Vector2(1189, 1132)
 
-[node name="Marker2D4" type="Marker2D" parent="Npcs2/Box1"]
+[node name="Marker2D4" type="Marker2D" parent="Npcs2/Box"]
 position = Vector2(988, 884)
 
-[node name="Marker2D5" type="Marker2D" parent="Npcs2/Box1"]
+[node name="Marker2D5" type="Marker2D" parent="Npcs2/Box"]
 position = Vector2(1214, 885)
 
-[node name="Marker2D6" type="Marker2D" parent="Npcs2/Box1"]
+[node name="Marker2D6" type="Marker2D" parent="Npcs2/Box"]
 position = Vector2(1202, 1003)
 
 [node name="Timer" type="Timer" parent="Npcs2"]
@@ -89,12 +93,53 @@ navigation_polygon = SubResource("NavigationPolygon_u53dl")
 
 [node name="Lab_Bg" parent="Props" instance=ExtResource("2_oesxg")]
 position = Vector2(576, 580)
-scale = Vector2(1.75, 1.75)
-texture = ExtResource("4_kg74n")
+texture = ExtResource("6_ldivy")
 script_name = "Lab_Bg"
 description = "Lab Bg"
 clickable = false
 cursor = 1
+
+[node name="Dispenser" parent="Props" instance=ExtResource("2_oesxg")]
+position = Vector2(450, 778)
+script = ExtResource("7_ra71s")
+texture = ExtResource("8_sou7c")
+script_name = "Dispenser"
+description = "Dispenser"
+baseline = 115
+cursor = 1
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="Props/Dispenser"]
+visible = false
+polygon = PackedVector2Array(-62, -97, -41, -119, 61, -117, 63, 93, 44, 118, -63, 114)
+
+[node name="Walker" parent="Props" instance=ExtResource("2_oesxg")]
+position = Vector2(334, 971)
+script = ExtResource("9_af061")
+texture = ExtResource("10_e6psd")
+script_name = "Walker"
+description = "Walker"
+baseline = 90
+cursor = 1
+metadata/_edit_group_ = true
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="Props/Walker"]
+visible = false
+polygon = PackedVector2Array(-87, -1, 18, 1, 13, -43, 55, -84, 118, -95, 116, -29, 148, 1, 109, 92, -126, 93, -150, 53)
+
+[node name="Bed" parent="Props" instance=ExtResource("2_oesxg")]
+visible = false
+position = Vector2(874, 1070)
+script = ExtResource("11_ee8fu")
+texture = ExtResource("12_vdeyn")
+script_name = "Bed"
+description = "Bed"
+baseline = 60
+cursor = 1
+metadata/_edit_group_ = true
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="Props/Bed"]
+visible = false
+polygon = PackedVector2Array(9, -61, 104, -58, 67, 60, -113, 62, -97, 33)
 
 [node name="Hotspots" type="Node2D" parent="."]
 
@@ -110,7 +155,6 @@ is_player = false
 
 [node name="CharacterHumanNPC1 *" parent="Characters" instance=ExtResource("7_vik2f")]
 position = Vector2(117, 979)
-is_player = false
 
 [node name="CharacterHumanNPC2 *" parent="Characters" instance=ExtResource("9_sg3po")]
 position = Vector2(1252, 1052)

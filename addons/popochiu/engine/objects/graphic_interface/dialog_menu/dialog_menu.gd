@@ -3,6 +3,8 @@ extends Container
 @warning_ignore("unused_signal")
 
 signal shown
+signal selected
+signal panel_resized(new_size)
 
 const PopochiuDialogOption :=\
 preload('res://addons/popochiu/engine/objects/dialog/popochiu_dialog_option.gd')
@@ -97,6 +99,7 @@ func _create_options(options := [], autoshow := false) -> void:
 	await get_tree().process_frame
 
 	_panel.custom_minimum_size.y = min(_options.size.y, _max_height)
+	panel_resized.emit(_panel.custom_minimum_size)
 
 
 func remove_options(_dialog: PopochiuDialog = null) -> void:
@@ -123,3 +126,4 @@ func show_options() -> void:
 func _on_option_clicked(opt: PopochiuDialogOption) -> void:
 	hide()
 	D.option_selected.emit(opt)
+	emit_signal("selected")

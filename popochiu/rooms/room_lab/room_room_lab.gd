@@ -17,12 +17,12 @@ func _on_room_entered() -> void:
 	$Characters.y_sort_enabled = false
 	$Props.y_sort_enabled = false
 	$Npcs1.start_npcs()
+	$Npcs2.start_npcs()
 
 
 # What happens when the room changing transition finishes. At this point the room
 # is visible.
 func _on_room_transition_finished() -> void:
-	# You can use await E.queue([]) to excecute a queue of instructions
 	pass
 
 

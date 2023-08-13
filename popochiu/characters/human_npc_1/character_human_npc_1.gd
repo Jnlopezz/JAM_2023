@@ -19,9 +19,24 @@ func _on_room_set() -> void:
 
 # When the node is clicked
 func _on_click() -> void:
-	# Replace the call to super() to implement your code. This only makes
-	# the default behavior to happen.
-	super.on_click()
+	var response: PopochiuDialogOption = await D.show_inline_dialog(
+		'“Aprieta el botón”, es lo único que nos dicen cada mañana al levantarnos',
+		[
+			'a Dinosaur', 'a Popochiu'
+		]
+	)
+	
+	match response.id:
+		'0':
+			Globals.jurassic_park_branch = Globals.Branch.DINOSAURS
+			$Props.get_node('Dinosaur').show()
+			C.Grandpa.play('01_up')
+			await C.Narrator.say('A damned mosquito bit a Dinosaur')
+		'1':
+			Globals.jurassic_park_branch = Globals.Branch.POPOCHIUS
+			$Props.get_node('Popochiu').show()
+			C.Grandpa.play('01_up')
+			await C.Narrator.say('A damned mosquito bit a Popochiu')
 
 
 # When the node is right clicked

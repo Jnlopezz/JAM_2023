@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhsfl8ot4j5fj"]
+[gd_scene load_steps=7 format=3 uid="uid://dhsfl8ot4j5fj"]
 
 [ext_resource type="Script" path="res://addons/popochiu/engine/objects/graphic_interface/dialog_menu/dialog_menu.gd" id="1_3dp72"]
+[ext_resource type="FontFile" uid="uid://dixh1egf7k2fb" path="res://addons/popochiu/fonts/monkeyisland_1991.ttf" id="1_r41lr"]
 [ext_resource type="PackedScene" uid="uid://dcta4urojglil" path="res://addons/popochiu/engine/objects/graphic_interface/dialog_menu/dialog_menu_option.tscn" id="2_xxbof"]
+
+[sub_resource type="Theme" id="Theme_8kkdo"]
+default_font = ExtResource("1_r41lr")
+default_font_size = 45
+Label/fonts/font = ExtResource("1_r41lr")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s524m"]
 
@@ -14,9 +20,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_8kkdo")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_s524m")
 script = ExtResource("1_3dp72")
 option_scene = ExtResource("2_xxbof")
+default = Color(0.486275, 0.482353, 0.482353, 1)
+used = Color(0.27451, 0.27451, 0.286275, 1)
 
 [node name="Panel" type="PanelContainer" parent="."]
 layout_mode = 2
