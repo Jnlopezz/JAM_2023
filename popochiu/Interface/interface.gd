@@ -7,14 +7,17 @@ extends CanvasLayer
 @onready var rtl_narrator: RichTextLabel = $Dialogs/RtlNarrador
 @onready var btn_continue: TextureButton = $Dialogs/BtnContinue
 @onready var bg_dialog_room: Control = $Dialogs/Dialog_room
+@onready var timer : TextureProgressBar = $Dialogs/Timer
 
 # ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ GODOT ░░░░
 func _ready() -> void:
+	timer.hide()
 	bg_dialog_room.hide()
 	dialog_menu_title.text = ""
 	dialog_menu_title.set_meta('ori_y', dialog_menu_title.position.y)
 	Globals.intro_triggered.connect(_on_intro_triggered)
 	Globals.dialog_ended.connect(_on_dialog_ended)
+	Globals.tween_initial.connect(on_tween_initial)
 	G.title_setted.connect(_set_dialog_menu_title)
 	C.character_spoke.connect(_show_character_text)
 	dialog_menu.selected.connect(_on_selected)
@@ -75,3 +78,16 @@ func _on_continue_pressed() -> void:
 	rtl_narrator.text = ''
 	btn_continue.hide()
 	G.continue_clicked.emit()
+
+
+func start_timer() -> void:
+	var tween = create_tween()
+	tween.tween_property(timer, 'value', 0, 20).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	timer.show()
+	await tween.finished
+	Globals.tween_ended.emit()
+	timer.hide()
+
+
+func on_tween_initial() -> void:
+	start_timer()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://by3x25yrf5o25"]
+[gd_scene load_steps=10 format=3 uid="uid://by3x25yrf5o25"]
 
 [ext_resource type="Script" path="res://popochiu/Interface/interface.gd" id="1_aj6ag"]
 [ext_resource type="FontFile" uid="uid://dixh1egf7k2fb" path="res://addons/popochiu/fonts/monkeyisland_1991.ttf" id="1_h4xvr"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dhsfl8ot4j5fj" path="res://addons/popochiu/engine/objects/graphic_interface/dialog_menu/dialog_menu.tscn" id="3_424gq"]
 [ext_resource type="PackedScene" uid="uid://l66d1cmmsenj" path="res://popochiu/characters/human/character_human.tscn" id="4_v0g6j"]
 [ext_resource type="Texture2D" uid="uid://hj148s7ppsw5" path="res://popochiu/rooms/room_lab/sombra.png" id="4_w1qpd"]
+[ext_resource type="Texture2D" uid="uid://d31k5vacv830r" path="res://popochiu/Interface/progreso_1.png" id="6_7u2s0"]
+[ext_resource type="Texture2D" uid="uid://bfp5oksqc428b" path="res://popochiu/Interface/progreso_2.png" id="7_6tedu"]
 
 [sub_resource type="Theme" id="Theme_ax1qe"]
 default_font = ExtResource("1_h4xvr")
@@ -82,7 +84,6 @@ offset_top = 1111.0
 offset_right = 1153.0
 offset_bottom = 1152.0
 theme = ExtResource("2_sho0e")
-text = "fdhfhgdfghfdgh"
 horizontal_alignment = 1
 
 [node name="DialogMenu" parent="Dialogs" instance=ExtResource("3_424gq")]
@@ -100,9 +101,9 @@ fit_content = true
 
 [node name="RtlNarrador" type="RichTextLabel" parent="Dialogs"]
 offset_left = 258.0
-offset_top = 1043.0
+offset_top = 1063.0
 offset_right = 901.0
-offset_bottom = 1131.0
+offset_bottom = 1119.0
 mouse_filter = 2
 theme = ExtResource("2_sho0e")
 theme_override_colors/default_color = Color(0.027451, 0.027451, 0.027451, 1)
@@ -113,6 +114,16 @@ fit_content = true
 offset_right = 1151.0
 offset_bottom = 1152.0
 focus_mode = 0
+
+[node name="Timer" type="TextureProgressBar" parent="Dialogs"]
+offset_left = 302.0
+offset_top = 1065.0
+offset_right = 850.0
+offset_bottom = 1115.0
+mouse_filter = 2
+value = 100.0
+texture_under = ExtResource("6_7u2s0")
+texture_progress = ExtResource("7_6tedu")
 
 [node name="Intro" type="CanvasLayer" parent="."]
 

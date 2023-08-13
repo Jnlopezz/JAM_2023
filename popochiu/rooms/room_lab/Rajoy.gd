@@ -3,6 +3,7 @@ extends Node2D
 @onready var timer: Timer = $Timer
 @export var character_name: String = ''
 var position_idx := 0
+var rajoy_present := false
 
 func start_rajoy() -> void:
 	timer.timeout.connect(_on_time_out)
@@ -34,6 +35,12 @@ func on_rajoy_arrived() -> void:
 	var npc : PopochiuCharacter = C[character_name]
 	npc.rajoy_arrived.disconnect(on_rajoy_arrived)
 	print('arrived')
+	if position_idx == 1:
+		rajoy_present = true
+		Globals.tween_initial.emit()
+		await Globals.tween_ended
+		rajoy_present = false
+	
 	if position_idx < 2:
 		timer.start(get_wait_time(10))
 
