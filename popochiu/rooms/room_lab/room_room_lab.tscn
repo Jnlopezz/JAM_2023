@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cl8nf1k2jvn2d"]
+[gd_scene load_steps=31 format=3 uid="uid://cl8nf1k2jvn2d"]
 
 [ext_resource type="Script" path="res://popochiu/rooms/room_lab/room_room_lab.gd" id="1_wkwtt"]
 [ext_resource type="PackedScene" uid="uid://uvtywyf3pq1a" path="res://addons/popochiu/engine/objects/walkable_area/popochiu_walkable_area.tscn" id="2_2xnmt"]
@@ -16,15 +16,27 @@
 [ext_resource type="Script" path="res://popochiu/rooms/room_lab/props/walker/prop_walker.gd" id="9_af061"]
 [ext_resource type="PackedScene" uid="uid://dhkj2r4qfpk5h" path="res://popochiu/characters/human_npc_2/character_human_npc_2.tscn" id="9_sg3po"]
 [ext_resource type="Texture2D" uid="uid://do11sttsj8q55" path="res://popochiu/rooms/room_lab/props/walker/AssetCaminadora.png" id="10_e6psd"]
+[ext_resource type="Texture2D" uid="uid://b7bfxhlqsktbn" path="res://popochiu/rooms/room_lab/props/button/AssetBoton.png" id="11_63b0u"]
 [ext_resource type="Script" path="res://popochiu/rooms/room_lab/props/bed/prop_bed.gd" id="11_ee8fu"]
 [ext_resource type="Texture2D" uid="uid://c0bwin7bsyw2e" path="res://popochiu/rooms/room_lab/props/bed/AssetCama.png" id="12_vdeyn"]
 [ext_resource type="PackedScene" uid="uid://lf5py5f18hqa" path="res://popochiu/characters/narra/character_narra.tscn" id="13_2au4n"]
 [ext_resource type="PackedScene" uid="uid://dek7uume1grf0" path="res://popochiu/characters/dr_rajoy/character_dr_rajoy.tscn" id="13_begvy"]
+[ext_resource type="Script" path="res://popochiu/rooms/room_lab/props/button/prop_button.gd" id="16_uuauk"]
+[ext_resource type="Texture2D" uid="uid://dlupsuf5pbwqx" path="res://popochiu/Interface/monedas_2.png" id="23_tj1ud"]
+[ext_resource type="Script" path="res://Audios/AudioManager.gd" id="24_axkr4"]
+[ext_resource type="AudioStream" uid="uid://bimtmgkxmeq26" path="res://Audios/amb_lab.ogg" id="24_xhtcp"]
+[ext_resource type="AudioStream" uid="uid://c8rftatcso8eh" path="res://Audios/sfx_boton.ogg" id="25_viuxv"]
+[ext_resource type="AudioStream" uid="uid://b866a72tt5abh" path="res://Audios/sfx_pasos_02.ogg" id="26_kvl04"]
+[ext_resource type="AudioStream" uid="uid://tblguttbpbxy" path="res://Audios/sfx_visagra_close.ogg" id="27_qsb15"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_u53dl"]
-vertices = PackedVector2Array(-216, 237, 217, 239, 449, 576, -458, 576)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-216, 237, 217, 239, 449, 576, -458, 576)])
+vertices = PackedVector2Array(296, 574, -458, 576, -216, 237, 217, 239, 279, 486, 350, 441)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-216, 237, 217, 239, 350, 441, 279, 486, 296, 574, -458, 576)])
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17h8c"]
+atlas = ExtResource("23_tj1ud")
+region = Rect2(23, 28.5, 110, 97)
 
 [node name="RoomRoom_Lab" type="Node2D"]
 script = ExtResource("1_wkwtt")
@@ -142,21 +154,24 @@ description = "Glass"
 clickable = false
 cursor = 1
 
-[node name="Dispenser" parent="Props" instance=ExtResource("2_oesxg")]
-position = Vector2(450, 778)
-script = ExtResource("7_ra71s")
-texture = ExtResource("8_sou7c")
-script_name = "Dispenser"
-description = "Dispenser"
-baseline = 115
+[node name="Button" parent="Props" instance=ExtResource("2_oesxg")]
+position = Vector2(576, 682)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("16_uuauk")
+texture = ExtResource("11_63b0u")
+script_name = "Button"
+description = "Button"
+walk_to_point = Vector2(2.08165e-12, 2.08165e-12)
 cursor = 1
+metadata/_edit_group_ = true
 
-[node name="InteractionPolygon" type="CollisionPolygon2D" parent="Props/Dispenser"]
-visible = false
-polygon = PackedVector2Array(-62, -97, -41, -119, 61, -117, 63, 93, 44, 118, -63, 114)
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="Props/Button"]
+polygon = PackedVector2Array(-73, -65, -74, 68, 75, 69, 77, -69)
 
 [node name="Walker" parent="Props" instance=ExtResource("2_oesxg")]
-position = Vector2(310, 971)
+visible = false
+z_index = 1
+position = Vector2(310, 922)
 script = ExtResource("9_af061")
 texture = ExtResource("10_e6psd")
 script_name = "Walker"
@@ -169,7 +184,23 @@ metadata/_edit_group_ = true
 visible = false
 polygon = PackedVector2Array(-87, -1, 18, 1, 13, -43, 55, -84, 118, -95, 116, -29, 148, 1, 109, 92, -126, 93, -150, 53)
 
+[node name="Dispenser" parent="Props" instance=ExtResource("2_oesxg")]
+visible = false
+position = Vector2(432, 712)
+script = ExtResource("7_ra71s")
+texture = ExtResource("8_sou7c")
+script_name = "Dispenser"
+description = "Dispenser"
+baseline = 115
+cursor = 1
+metadata/_edit_group_ = true
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="Props/Dispenser"]
+visible = false
+polygon = PackedVector2Array(-62, -97, -41, -119, 61, -117, 63, 93, 44, 118, -63, 114)
+
 [node name="Bed" parent="Props" instance=ExtResource("2_oesxg")]
+visible = false
 position = Vector2(874, 1070)
 script = ExtResource("11_ee8fu")
 texture = ExtResource("12_vdeyn")
@@ -205,3 +236,98 @@ position = Vector2(40, 915)
 
 [node name="CharacterHumanNPC2 *" parent="Characters" instance=ExtResource("9_sg3po")]
 position = Vector2(1253, 893)
+
+[node name="Coins" type="Node2D" parent="."]
+z_index = 2
+
+[node name="coin" type="Sprite2D" parent="Coins"]
+visible = false
+position = Vector2(942, 1102)
+texture = SubResource("AtlasTexture_17h8c")
+
+[node name="coin2" type="Sprite2D" parent="Coins"]
+visible = false
+position = Vector2(934, 1086)
+texture = SubResource("AtlasTexture_17h8c")
+
+[node name="coin3" type="Sprite2D" parent="Coins"]
+visible = false
+position = Vector2(942, 1070)
+texture = SubResource("AtlasTexture_17h8c")
+
+[node name="coin4" type="Sprite2D" parent="Coins"]
+visible = false
+position = Vector2(950, 1054)
+texture = SubResource("AtlasTexture_17h8c")
+
+[node name="coin5" type="Sprite2D" parent="Coins"]
+visible = false
+position = Vector2(942, 1038)
+texture = SubResource("AtlasTexture_17h8c")
+
+[node name="coin6" type="Sprite2D" parent="Coins"]
+visible = false
+position = Vector2(937, 1022)
+texture = SubResource("AtlasTexture_17h8c")
+
+[node name="coin7" type="Sprite2D" parent="Coins"]
+visible = false
+position = Vector2(945, 1004)
+texture = SubResource("AtlasTexture_17h8c")
+
+[node name="coin8" type="Sprite2D" parent="Coins"]
+visible = false
+position = Vector2(934, 987)
+texture = SubResource("AtlasTexture_17h8c")
+
+[node name="coin9" type="Sprite2D" parent="Coins"]
+visible = false
+position = Vector2(943, 971)
+texture = SubResource("AtlasTexture_17h8c")
+
+[node name="coin10" type="Sprite2D" parent="Coins"]
+visible = false
+position = Vector2(936, 954)
+texture = SubResource("AtlasTexture_17h8c")
+
+[node name="coin11" type="Sprite2D" parent="Coins"]
+visible = false
+position = Vector2(943, 936)
+texture = SubResource("AtlasTexture_17h8c")
+
+[node name="coin12" type="Sprite2D" parent="Coins"]
+visible = false
+position = Vector2(934, 924)
+texture = SubResource("AtlasTexture_17h8c")
+
+[node name="coin13" type="Sprite2D" parent="Coins"]
+visible = false
+position = Vector2(937, 905)
+texture = SubResource("AtlasTexture_17h8c")
+
+[node name="coin14" type="Sprite2D" parent="Coins"]
+visible = false
+position = Vector2(947, 888)
+texture = SubResource("AtlasTexture_17h8c")
+
+[node name="AudioManager" type="Node2D" parent="."]
+script = ExtResource("24_axkr4")
+
+[node name="MX" type="Node2D" parent="AudioManager"]
+
+[node name="Ambient" type="AudioStreamPlayer" parent="AudioManager/MX"]
+stream = ExtResource("24_xhtcp")
+
+[node name="Button" type="AudioStreamPlayer" parent="AudioManager/MX"]
+stream = ExtResource("25_viuxv")
+
+[node name="Steps" type="AudioStreamPlayer" parent="AudioManager/MX"]
+stream = ExtResource("26_kvl04")
+
+[node name="Visagra_close" type="AudioStreamPlayer" parent="AudioManager/MX"]
+stream = ExtResource("27_qsb15")
+
+[node name="Visagra_open" type="AudioStreamPlayer" parent="AudioManager/MX"]
+stream = ExtResource("27_qsb15")
+
+[node name="FX" type="Node2D" parent="AudioManager"]

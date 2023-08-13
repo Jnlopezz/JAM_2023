@@ -81,6 +81,7 @@ animations = [{
 z_index = -1
 script = ExtResource("1_gby4p")
 can_move = false
+ignore_walkable_areas = true
 script_name = "DrRajoy"
 description = "Dr Rajoy"
 cursor = 8

@@ -30,6 +30,7 @@ A="*res://popochiu/autoloads/a.gd"
 [display]
 
 window/size/viewport_height=1152
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [editor_plugins]

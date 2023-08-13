@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvbydjmed0asn"]
+
+[ext_resource type="Texture2D" uid="uid://dprrafi3pe6b4" path="res://popochiu/Interface/Coin-01.png" id="1_nr2od"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6qqej"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[node name="Coins" type="CPUParticles2D"]
+material = SubResource("CanvasItemMaterial_6qqej")
+emitting = false
+amount = 10
+lifetime = 4.0
+one_shot = true
+preprocess = 0.2
+explosiveness = 1.0
+randomness = 0.86
+local_coords = true
+texture = ExtResource("1_nr2od")
+spread = 180.0
+gravity = Vector2(2.08165e-12, 500)
+initial_velocity_min = 98.37
+initial_velocity_max = 350.0
+angular_velocity_min = -244.12
+angular_velocity_max = 90.0
+linear_accel_min = -72.0
+radial_accel_min = -62.75
+radial_accel_max = 24.18
+angle_min = -38.3
+angle_max = 38.2
+anim_speed_min = 1.0
+anim_speed_max = 3.09

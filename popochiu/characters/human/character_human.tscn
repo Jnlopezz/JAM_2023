@@ -1,11 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://l66d1cmmsenj"]
+[gd_scene load_steps=11 format=3 uid="uid://l66d1cmmsenj"]
 
 [ext_resource type="Script" path="res://popochiu/characters/human/character_human.gd" id="1_4cv35"]
 [ext_resource type="Texture2D" uid="uid://s0il388qmmw0" path="res://popochiu/characters/human/Human.png" id="2_rumij"]
+[ext_resource type="Texture2D" uid="uid://hbhmosjj0nop" path="res://popochiu/characters/human/rayo_reaccion_personaje.png" id="3_hjrap"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d0umg"]
 atlas = ExtResource("2_rumij")
 region = Rect2(0, 0, 113, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci1yg"]
+atlas = ExtResource("3_hjrap")
+region = Rect2(0, 0, 250, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iaueg"]
+atlas = ExtResource("3_hjrap")
+region = Rect2(302, 0, 151, 288)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0fb6"]
 atlas = ExtResource("2_rumij")
@@ -27,6 +36,32 @@ animations = [{
 }],
 "loop": false,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci1yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci1yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci1yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci1yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci1yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci1yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iaueg")
+}],
+"loop": false,
+"name": &"punir",
 "speed": 5.0
 }, {
 "frames": [{

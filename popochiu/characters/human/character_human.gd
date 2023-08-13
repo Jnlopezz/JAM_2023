@@ -51,6 +51,11 @@ func _play_walk(target_pos: Vector2) -> void:
 	super(target_pos)
 
 
+
+func punir() -> void:
+	anim_player.play("punir")
+
+
 # Use it to play the talk animation for the character
 func _play_talk() -> void:
 	super()

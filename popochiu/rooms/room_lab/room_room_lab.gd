@@ -5,7 +5,9 @@ const Data := preload('room_room_lab_state.gd')
 
 var state: Data = load('res://popochiu/rooms/room_lab/room_room_lab.tres')
 
-
+var goal_to_coin := 1
+var current_coins := 0
+var coin_visible := 0
 # ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ GODOT ░░░░
 # TODO: Overwrite Godot's methods
 
@@ -15,6 +17,10 @@ var state: Data = load('res://popochiu/rooms/room_lab/room_room_lab.tres')
 # tree but it is not visible
 func _on_room_entered() -> void:
 	Globals.tween_ended.connect(on_timer_completed)
+	Globals.abort_tween.connect(_on_abort_tween)
+	Globals.restart_game.connect(_on_restart)
+	Globals.audio.emit('play', 'MX', 'Ambient')
+	$Props.get_node('Button').botton_done.connect(on_button_done)
 	$Characters.y_sort_enabled = true
 	$Props.y_sort_enabled = true
 
@@ -36,7 +42,30 @@ func _on_room_exited() -> void:
 
 
 func on_timer_completed() -> void:
-	print('Regrard')
+	if $Rajoy.rajoy_present:
+		C.Human.punir()
+		$Rajoy.add_one_phase()
+		print('siguió a phase')
+
+
+func _on_abort_tween() -> void:
+	$Rajoy.abort_timer()
+	print('Abortó')
+
+
+func on_button_done() -> void:
+	Globals.reward.emit()
+	if current_coins == goal_to_coin:
+		if coin_visible >= $Coins.get_child_count(): return
+		$Coins.get_child(coin_visible).show()
+		coin_visible += 1
+		goal_to_coin = goal_to_coin * 2
+	
+	current_coins += 1
+
+
+func _on_restart() -> void:
+	$Rajoy.reset_rajoy()
 
 
 # ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ PUBLIC ░░░░

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://by3x25yrf5o25"]
+[gd_scene load_steps=18 format=3 uid="uid://by3x25yrf5o25"]
 
 [ext_resource type="Script" path="res://popochiu/Interface/interface.gd" id="1_aj6ag"]
 [ext_resource type="FontFile" uid="uid://dixh1egf7k2fb" path="res://addons/popochiu/fonts/monkeyisland_1991.ttf" id="1_h4xvr"]
@@ -6,12 +6,24 @@
 [ext_resource type="PackedScene" uid="uid://dhsfl8ot4j5fj" path="res://addons/popochiu/engine/objects/graphic_interface/dialog_menu/dialog_menu.tscn" id="3_424gq"]
 [ext_resource type="PackedScene" uid="uid://l66d1cmmsenj" path="res://popochiu/characters/human/character_human.tscn" id="4_v0g6j"]
 [ext_resource type="Texture2D" uid="uid://hj148s7ppsw5" path="res://popochiu/rooms/room_lab/sombra.png" id="4_w1qpd"]
+[ext_resource type="Theme" uid="uid://ddjn8vbyo3b84" path="res://Fonts/texts.tres" id="5_q82d8"]
 [ext_resource type="Texture2D" uid="uid://d31k5vacv830r" path="res://popochiu/Interface/progreso_1.png" id="6_7u2s0"]
 [ext_resource type="Texture2D" uid="uid://bfp5oksqc428b" path="res://popochiu/Interface/progreso_2.png" id="7_6tedu"]
+[ext_resource type="Texture2D" uid="uid://bsaq1xonuay03" path="res://popochiu/Interface/FondoFinal.png" id="10_cptet"]
+[ext_resource type="Texture2D" uid="uid://bgtx1lekbj0gp" path="res://popochiu/Interface/personaje_final.png" id="11_ur1l6"]
+[ext_resource type="Texture2D" uid="uid://b80i81xdh88vl" path="res://popochiu/Interface/AssetBotonFinal.png" id="12_5i2pm"]
+[ext_resource type="Texture2D" uid="uid://k7sijkq5vr1u" path="res://popochiu/Interface/AssetBotonFinal1.png" id="13_0y4jq"]
+[ext_resource type="Texture2D" uid="uid://dv8q2sqjp8inu" path="res://popochiu/Interface/AssetBotonVFinal.png" id="14_biq7m"]
+[ext_resource type="Texture2D" uid="uid://b0ruh8da6u3g3" path="res://popochiu/Interface/AssetBotonVFinal1.png" id="15_fkcil"]
 
 [sub_resource type="Theme" id="Theme_ax1qe"]
 default_font = ExtResource("1_h4xvr")
 default_font_size = 150
+
+[sub_resource type="Theme" id="Theme_j3s7i"]
+default_font = ExtResource("1_h4xvr")
+default_font_size = 80
+Label/colors/font_color = Color(0.105882, 0.054902, 0.0627451, 1)
 
 [node name="Interface" type="CanvasLayer"]
 script = ExtResource("1_aj6ag")
@@ -80,10 +92,10 @@ offset_bottom = 722.0
 texture = ExtResource("4_w1qpd")
 
 [node name="Dialog_title" type="Label" parent="Dialogs"]
-offset_top = 1111.0
+offset_top = 1095.0
 offset_right = 1153.0
-offset_bottom = 1152.0
-theme = ExtResource("2_sho0e")
+offset_bottom = 1154.0
+theme = ExtResource("5_q82d8")
 horizontal_alignment = 1
 
 [node name="DialogMenu" parent="Dialogs" instance=ExtResource("3_424gq")]
@@ -125,6 +137,9 @@ value = 100.0
 texture_under = ExtResource("6_7u2s0")
 texture_progress = ExtResource("7_6tedu")
 
+[node name="Marker2D" type="Marker2D" parent="Dialogs"]
+position = Vector2(575, -180)
+
 [node name="Intro" type="CanvasLayer" parent="."]
 
 [node name="start" type="Button" parent="Intro"]
@@ -135,7 +150,108 @@ offset_bottom = 749.0
 focus_mode = 0
 theme = SubResource("Theme_ax1qe")
 theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
-theme_override_colors/font_pressed_color = Color(0.792157, 0, 0.619608, 1)
+theme_override_colors/font_pressed_color = Color(0.803922, 0.0235294, 0.0235294, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 text = "EMPEZAR"
 flat = true
+
+[node name="End_game" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="bg" type="TextureRect" parent="End_game"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("10_cptet")
+
+[node name="Kid" type="TextureRect" parent="End_game"]
+offset_left = 427.0
+offset_top = 371.0
+offset_right = 737.0
+offset_bottom = 886.0
+texture = ExtResource("11_ur1l6")
+
+[node name="Again" type="TextureButton" parent="End_game"]
+offset_left = 155.0
+offset_top = 564.0
+offset_right = 327.0
+offset_bottom = 718.0
+texture_normal = ExtResource("12_5i2pm")
+texture_pressed = ExtResource("13_0y4jq")
+
+[node name="End" type="TextureButton" parent="End_game"]
+offset_left = 824.0
+offset_top = 560.0
+offset_right = 996.0
+offset_bottom = 714.0
+texture_normal = ExtResource("14_biq7m")
+texture_pressed = ExtResource("15_fkcil")
+
+[node name="Title" type="Label" parent="End_game"]
+offset_left = 267.0
+offset_top = 118.0
+offset_right = 913.0
+offset_bottom = 242.0
+theme = SubResource("Theme_j3s7i")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.435294, 0.423529, 0.435294, 1)
+text = "Todo es cuestión 
+de perspectiva"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Creditos" type="Label" parent="End_game/Title"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 816.0
+offset_right = 656.0
+offset_bottom = 878.0
+theme = ExtResource("2_sho0e")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Creado por:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="names" type="GridContainer" parent="End_game/Title"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 884.0
+offset_right = 587.0
+offset_bottom = 973.0
+theme_override_constants/h_separation = 90
+theme_override_constants/v_separation = 10
+columns = 2
+metadata/_edit_group_ = true
+
+[node name="julie" type="Label" parent="End_game/Title/names"]
+layout_mode = 2
+theme = ExtResource("2_sho0e")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Julie lópez"
+vertical_alignment = 1
+
+[node name="Dav" type="Label" parent="End_game/Title/names"]
+layout_mode = 2
+theme = ExtResource("2_sho0e")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "David Bustos"
+vertical_alignment = 1
+
+[node name="juanita" type="Label" parent="End_game/Title/names"]
+layout_mode = 2
+theme = ExtResource("2_sho0e")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Juanita Hoyos"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sofy" type="Label" parent="End_game/Title/names"]
+layout_mode = 2
+theme = ExtResource("2_sho0e")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Sofy Aspe"
+vertical_alignment = 1
