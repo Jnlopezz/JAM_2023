@@ -18,6 +18,7 @@ func _on_room_entered() -> void:
 	$Props.y_sort_enabled = true
 	$Npcs1.start_npcs()
 	$Npcs2.start_npcs()
+	$Rajoy.start_rajoy()
 
 
 # What happens when the room changing transition finishes. At this point the room

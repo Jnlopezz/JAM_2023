@@ -65,7 +65,7 @@ script = ExtResource("1_frxgl")
 flips_when = 1
 ignore_walkable_areas = true
 script_name = "HumanNPC1"
-description = "Human Npc 1"
+description = "406"
 cursor = 8
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]

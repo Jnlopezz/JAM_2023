@@ -59,6 +59,9 @@ func _play_grab() -> void:
 	pass
 
 
+func _walk_ended() -> void:
+	pass
+
 # ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ PUBLIC ░░░░
 func queue_idle() -> Callable:
 	return func (): await idle()
@@ -112,15 +115,15 @@ func walk(target_pos: Vector2) -> void:
 	
 	# Call the virtual that plays the walk animation
 	_play_walk(target_pos)
-	
 	# Trigger the signal for the room  to start moving the character
 	started_walk_to.emit(self, position, target_pos)
 	
-	var is_character_finished := false
-	
 	await move_ended
-	
 	is_moving = false
+
+
+func _movement_ended() -> void:
+	_walk_ended()
 
 
 func queue_stop_walking() -> Callable:

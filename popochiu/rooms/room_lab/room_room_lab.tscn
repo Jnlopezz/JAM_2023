@@ -1,15 +1,18 @@
-[gd_scene load_steps=19 format=3 uid="uid://cl8nf1k2jvn2d"]
+[gd_scene load_steps=22 format=3 uid="uid://cl8nf1k2jvn2d"]
 
 [ext_resource type="Script" path="res://popochiu/rooms/room_lab/room_room_lab.gd" id="1_wkwtt"]
 [ext_resource type="PackedScene" uid="uid://uvtywyf3pq1a" path="res://addons/popochiu/engine/objects/walkable_area/popochiu_walkable_area.tscn" id="2_2xnmt"]
 [ext_resource type="Script" path="res://popochiu/rooms/room_lab/walkable_areas/box/Npcs.gd" id="2_4qwv4"]
 [ext_resource type="PackedScene" uid="uid://do1k681xt48cm" path="res://addons/popochiu/engine/objects/prop/popochiu_prop.tscn" id="2_oesxg"]
+[ext_resource type="Script" path="res://popochiu/rooms/room_lab/Rajoy.gd" id="3_1eusq"]
 [ext_resource type="Script" path="res://popochiu/rooms/room_lab/walkable_areas/box/walkable_area_box.gd" id="3_jtpfe"]
 [ext_resource type="PackedScene" uid="uid://l66d1cmmsenj" path="res://popochiu/characters/human/character_human.tscn" id="4_5akd3"]
 [ext_resource type="Texture2D" uid="uid://bfp15555x36n6" path="res://popochiu/rooms/room_lab/props/lab_bg/fondo_final.png" id="6_ldivy"]
 [ext_resource type="Script" path="res://popochiu/rooms/room_lab/props/dispenser/prop_dispenser.gd" id="7_ra71s"]
 [ext_resource type="PackedScene" uid="uid://711pdhv4w4ut" path="res://popochiu/characters/human_npc_1/character_human_npc_1.tscn" id="7_vik2f"]
+[ext_resource type="Texture2D" uid="uid://bdiygrcnxxfy2" path="res://popochiu/rooms/room_lab/props/glass/mesa_2.png" id="8_bpvxr"]
 [ext_resource type="Texture2D" uid="uid://craocmvvl6v1r" path="res://popochiu/rooms/room_lab/props/dispenser/dispenser.png" id="8_sou7c"]
+[ext_resource type="Texture2D" uid="uid://c7ct3to2nmlbt" path="res://popochiu/rooms/room_lab/props/cage/mesa.png" id="8_vhgej"]
 [ext_resource type="Script" path="res://popochiu/rooms/room_lab/props/walker/prop_walker.gd" id="9_af061"]
 [ext_resource type="PackedScene" uid="uid://dhkj2r4qfpk5h" path="res://popochiu/characters/human_npc_2/character_human_npc_2.tscn" id="9_sg3po"]
 [ext_resource type="Texture2D" uid="uid://do11sttsj8q55" path="res://popochiu/rooms/room_lab/props/walker/AssetCaminadora.png" id="10_e6psd"]
@@ -19,9 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://dek7uume1grf0" path="res://popochiu/characters/dr_rajoy/character_dr_rajoy.tscn" id="13_begvy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_u53dl"]
-vertices = PackedVector2Array(-48, 381, -250.299, 380.481, -213, 338, -62, 341, 542, 581, -422, 583, -358, 502, -79, 501, -23, 303, 302, 306)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 4, 7, 0), PackedInt32Array(0, 3, 8)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-213, 338, -62, 341, -23, 303, 302, 306, 542, 581, -422, 583, -358, 502, -79, 501, -48, 381, -250.299, 380.481)])
+vertices = PackedVector2Array(-216, 237, 217, 239, 449, 576, -458, 576)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-216, 237, 217, 239, 449, 576, -458, 576)])
 
 [node name="RoomRoom_Lab" type="Node2D"]
 script = ExtResource("1_wkwtt")
@@ -34,24 +37,25 @@ character_name = "HumanNPC1"
 [node name="Box" type="Node2D" parent="Npcs1"]
 
 [node name="Marker2D" type="Marker2D" parent="Npcs1/Box"]
-position = Vector2(-67, 1007)
+position = Vector2(40, 917)
 
 [node name="Marker2D2" type="Marker2D" parent="Npcs1/Box"]
-position = Vector2(39, 1120)
+position = Vector2(31, 1064)
 
 [node name="Marker2D3" type="Marker2D" parent="Npcs1/Box"]
 position = Vector2(-184, 1132)
 
 [node name="Marker2D4" type="Marker2D" parent="Npcs1/Box"]
-position = Vector2(-142, 884)
+position = Vector2(-130, 855)
 
 [node name="Marker2D5" type="Marker2D" parent="Npcs1/Box"]
-position = Vector2(146, 1037)
+position = Vector2(146, 949)
 
 [node name="Marker2D6" type="Marker2D" parent="Npcs1/Box"]
-position = Vector2(250, 888)
+position = Vector2(218, 832)
 
 [node name="Timer" type="Timer" parent="Npcs1"]
+one_shot = true
 
 [node name="Npcs2" type="Node2D" parent="."]
 script = ExtResource("2_4qwv4")
@@ -60,24 +64,43 @@ character_name = "HumanNPC2"
 [node name="Box" type="Node2D" parent="Npcs2"]
 
 [node name="Marker2D" type="Marker2D" parent="Npcs2/Box"]
-position = Vector2(1090, 966)
+position = Vector2(1106, 958)
 
 [node name="Marker2D2" type="Marker2D" parent="Npcs2/Box"]
-position = Vector2(1348, 1095)
+position = Vector2(1242, 835)
 
 [node name="Marker2D3" type="Marker2D" parent="Npcs2/Box"]
-position = Vector2(1189, 1132)
+position = Vector2(1194, 1101)
 
 [node name="Marker2D4" type="Marker2D" parent="Npcs2/Box"]
-position = Vector2(988, 884)
+position = Vector2(932, 836)
 
 [node name="Marker2D5" type="Marker2D" parent="Npcs2/Box"]
-position = Vector2(1214, 885)
+position = Vector2(1214, 861)
 
 [node name="Marker2D6" type="Marker2D" parent="Npcs2/Box"]
-position = Vector2(1202, 1003)
+position = Vector2(1287, 975)
 
 [node name="Timer" type="Timer" parent="Npcs2"]
+one_shot = true
+
+[node name="Rajoy" type="Node2D" parent="."]
+script = ExtResource("3_1eusq")
+character_name = "DrRajoy"
+
+[node name="Box" type="Node2D" parent="Rajoy"]
+
+[node name="Marker2D" type="Marker2D" parent="Rajoy/Box"]
+position = Vector2(-482, 798)
+
+[node name="Marker2D2" type="Marker2D" parent="Rajoy/Box"]
+position = Vector2(582, 797)
+
+[node name="Marker2D3" type="Marker2D" parent="Rajoy/Box"]
+position = Vector2(1475, 797)
+
+[node name="Timer" type="Timer" parent="Rajoy"]
+one_shot = true
 
 [node name="WalkableAreas" type="Node2D" parent="."]
 
@@ -95,10 +118,27 @@ navigation_polygon = SubResource("NavigationPolygon_u53dl")
 
 [node name="Lab_Bg" parent="Props" instance=ExtResource("2_oesxg")]
 z_index = -1
-position = Vector2(576, 580)
+position = Vector2(576, 576)
 texture = ExtResource("6_ldivy")
 script_name = "Lab_Bg"
 description = "Lab Bg"
+clickable = false
+cursor = 1
+
+[node name="Cage" parent="Props" instance=ExtResource("2_oesxg")]
+position = Vector2(576, 576)
+texture = ExtResource("8_vhgej")
+script_name = "Cage"
+description = "Cage"
+clickable = false
+cursor = 1
+
+[node name="Glass" parent="Props" instance=ExtResource("2_oesxg")]
+z_index = 1
+position = Vector2(576, 576)
+texture = ExtResource("8_bpvxr")
+script_name = "Glass"
+description = "Glass"
 clickable = false
 cursor = 1
 
@@ -116,7 +156,7 @@ visible = false
 polygon = PackedVector2Array(-62, -97, -41, -119, 61, -117, 63, 93, 44, 118, -63, 114)
 
 [node name="Walker" parent="Props" instance=ExtResource("2_oesxg")]
-position = Vector2(334, 971)
+position = Vector2(310, 971)
 script = ExtResource("9_af061")
 texture = ExtResource("10_e6psd")
 script_name = "Walker"
@@ -130,7 +170,6 @@ visible = false
 polygon = PackedVector2Array(-87, -1, 18, 1, 13, -43, 55, -84, 118, -95, 116, -29, 148, 1, 109, 92, -126, 93, -150, 53)
 
 [node name="Bed" parent="Props" instance=ExtResource("2_oesxg")]
-visible = false
 position = Vector2(874, 1070)
 script = ExtResource("11_ee8fu")
 texture = ExtResource("12_vdeyn")
@@ -155,15 +194,14 @@ polygon = PackedVector2Array(9, -61, 104, -58, 67, 60, -113, 62, -97, 33)
 [node name="CharacterNarra *" parent="Characters" instance=ExtResource("13_2au4n")]
 
 [node name="CharacterDrRajoy *" parent="Characters" instance=ExtResource("13_begvy")]
-position = Vector2(612, 345)
+position = Vector2(-482, 793)
 
 [node name="CharacterHuman *" parent="Characters" instance=ExtResource("4_5akd3")]
-position = Vector2(965, 1131)
+position = Vector2(635, 997)
 is_player = false
 
 [node name="CharacterHumanNPC1 *" parent="Characters" instance=ExtResource("7_vik2f")]
-position = Vector2(106, 907)
+position = Vector2(40, 915)
 
 [node name="CharacterHumanNPC2 *" parent="Characters" instance=ExtResource("9_sg3po")]
-position = Vector2(992, 893)
-is_player = false
+position = Vector2(1253, 893)

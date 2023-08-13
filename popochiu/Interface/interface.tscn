@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://by3x25yrf5o25"]
+[gd_scene load_steps=8 format=3 uid="uid://by3x25yrf5o25"]
 
 [ext_resource type="Script" path="res://popochiu/Interface/interface.gd" id="1_aj6ag"]
 [ext_resource type="FontFile" uid="uid://dixh1egf7k2fb" path="res://addons/popochiu/fonts/monkeyisland_1991.ttf" id="1_h4xvr"]
 [ext_resource type="Theme" uid="uid://1mmbq7vss6vw" path="res://Fonts/interface.tres" id="2_sho0e"]
 [ext_resource type="PackedScene" uid="uid://dhsfl8ot4j5fj" path="res://addons/popochiu/engine/objects/graphic_interface/dialog_menu/dialog_menu.tscn" id="3_424gq"]
+[ext_resource type="PackedScene" uid="uid://l66d1cmmsenj" path="res://popochiu/characters/human/character_human.tscn" id="4_v0g6j"]
+[ext_resource type="Texture2D" uid="uid://hj148s7ppsw5" path="res://popochiu/rooms/room_lab/sombra.png" id="4_w1qpd"]
 
 [sub_resource type="Theme" id="Theme_ax1qe"]
 default_font = ExtResource("1_h4xvr")
@@ -40,6 +42,41 @@ text = "000"
 
 [node name="Dialogs" type="CanvasLayer" parent="."]
 
+[node name="Dialog_room" type="Control" parent="Dialogs"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 1152.0
+
+[node name="bg" type="ColorRect" parent="Dialogs/Dialog_room"]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 1153.0
+
+[node name="CharacterHuman" parent="Dialogs/Dialog_room" instance=ExtResource("4_v0g6j")]
+position = Vector2(821, 695)
+scale = Vector2(2, 2)
+
+[node name="CharacterHuman2" parent="Dialogs/Dialog_room" instance=ExtResource("4_v0g6j")]
+position = Vector2(368, 699)
+scale = Vector2(-2, 2)
+
+[node name="shadow" type="TextureRect" parent="Dialogs/Dialog_room"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 625.0
+offset_right = 453.0
+offset_bottom = 725.0
+texture = ExtResource("4_w1qpd")
+
+[node name="shadow2" type="TextureRect" parent="Dialogs/Dialog_room"]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 622.0
+offset_right = 920.0
+offset_bottom = 722.0
+texture = ExtResource("4_w1qpd")
+
 [node name="Dialog_title" type="Label" parent="Dialogs"]
 offset_top = 1111.0
 offset_right = 1153.0
@@ -51,18 +88,22 @@ horizontal_alignment = 1
 [node name="DialogMenu" parent="Dialogs" instance=ExtResource("3_424gq")]
 
 [node name="RtlDialog" type="RichTextLabel" parent="Dialogs"]
-offset_top = 992.0
-offset_right = 1157.0
-offset_bottom = 1080.0
+offset_left = 211.0
+offset_top = 912.0
+offset_right = 916.0
+offset_bottom = 1000.0
+mouse_filter = 2
 theme = ExtResource("2_sho0e")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 fit_content = true
 
 [node name="RtlNarrador" type="RichTextLabel" parent="Dialogs"]
-offset_top = 163.0
-offset_right = 1157.0
-offset_bottom = 251.0
+offset_left = 258.0
+offset_top = 1043.0
+offset_right = 901.0
+offset_bottom = 1131.0
+mouse_filter = 2
 theme = ExtResource("2_sho0e")
 theme_override_colors/default_color = Color(0.027451, 0.027451, 0.027451, 1)
 bbcode_enabled = true

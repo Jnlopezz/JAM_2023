@@ -12,7 +12,7 @@ Label/fonts/font = ExtResource("1_r41lr")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s524m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2awe"]
-bg_color = Color(0.607843, 0.603922, 0.635294, 1)
+bg_color = Color(0.0941176, 0.0901961, 0.101961, 1)
 
 [node name="DialogMenu" type="PanelContainer"]
 anchors_preset = 15
@@ -24,7 +24,7 @@ theme = SubResource("Theme_8kkdo")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_s524m")
 script = ExtResource("1_3dp72")
 option_scene = ExtResource("2_xxbof")
-default = Color(0.486275, 0.482353, 0.482353, 1)
+default = Color(0.631373, 0.627451, 0.627451, 1)
 used = Color(0.27451, 0.27451, 0.286275, 1)
 
 [node name="Panel" type="PanelContainer" parent="."]

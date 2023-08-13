@@ -1,16 +1,79 @@
-[gd_scene load_steps=4 format=3 uid="uid://dek7uume1grf0"]
+[gd_scene load_steps=11 format=3 uid="uid://dek7uume1grf0"]
 
 [ext_resource type="Script" path="res://popochiu/characters/dr_rajoy/character_dr_rajoy.gd" id="1_gby4p"]
-[ext_resource type="Texture2D" uid="uid://da5k0tjwvafs7" path="res://popochiu/characters/dr_rajoy/raton_1.png" id="2_1e48y"]
+[ext_resource type="Texture2D" uid="uid://bcs7604xpr7nh" path="res://popochiu/characters/dr_rajoy/rata_1_frontal.png" id="2_22v52"]
+[ext_resource type="Texture2D" uid="uid://bnipw268kyrxn" path="res://popochiu/characters/dr_rajoy/rata_2_frontal.png" id="3_4n5kg"]
+[ext_resource type="Texture2D" uid="uid://bxwshhrw1q8vc" path="res://popochiu/characters/dr_rajoy/rata_1_lateral.png" id="3_fb5bw"]
+[ext_resource type="Texture2D" uid="uid://klqukfv8bw3i" path="res://popochiu/characters/dr_rajoy/rata_3_frontal.png" id="4_1powy"]
+[ext_resource type="Texture2D" uid="uid://dr4lyoumwqmt8" path="res://popochiu/characters/dr_rajoy/rata_4_frontal.png" id="5_5xhuf"]
+[ext_resource type="Texture2D" uid="uid://cc5endpg2jse0" path="res://popochiu/characters/dr_rajoy/rata_2_lateral.png" id="7_fh735"]
+[ext_resource type="Texture2D" uid="uid://785mj70ovgt" path="res://popochiu/characters/dr_rajoy/rata_3_lateral.png" id="8_tf64s"]
+[ext_resource type="Texture2D" uid="uid://dg6pxqcbt2bkt" path="res://popochiu/characters/dr_rajoy/rata_4_lateral.png" id="9_jeqer"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fbsoo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_1e48y")
+"texture": ExtResource("2_22v52")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"idle_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4n5kg")
+}],
+"loop": true,
+"name": &"idle_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1powy")
+}],
+"loop": true,
+"name": &"idle_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_5xhuf")
+}],
+"loop": true,
+"name": &"idle_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fb5bw")
+}],
+"loop": true,
+"name": &"side_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_fh735")
+}],
+"loop": true,
+"name": &"side_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_tf64s")
+}],
+"loop": true,
+"name": &"side_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_jeqer")
+}],
+"loop": true,
+"name": &"side_4",
 "speed": 5.0
 }]
 
@@ -42,8 +105,10 @@ color = Color(0, 1, 1, 1)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -400)
+scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_fbsoo")
-animation = &"idle"
+animation = &"side_1"
 
 [node name="DialogPos" type="Marker2D" parent="."]
 visible = false

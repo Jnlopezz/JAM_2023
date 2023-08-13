@@ -349,3 +349,6 @@ func _clear_navigation_path(character: PopochiuCharacter) -> void:
 	
 	character.idle()
 	character.move_ended.emit()
+	character._movement_ended()
+
+

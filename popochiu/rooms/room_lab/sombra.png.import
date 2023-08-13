@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da5k0tjwvafs7"
-path="res://.godot/imported/raton_1.png-311f3dcc08d87e01df7c7fa078a9bed6.ctex"
+uid="uid://hj148s7ppsw5"
+path="res://.godot/imported/sombra.png-080509f83cee52a9a8b6caf216861b3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://popochiu/characters/dr_rajoy/raton_1.png"
-dest_files=["res://.godot/imported/raton_1.png-311f3dcc08d87e01df7c7fa078a9bed6.ctex"]
+source_file="res://popochiu/rooms/room_lab/sombra.png"
+dest_files=["res://.godot/imported/sombra.png-080509f83cee52a9a8b6caf216861b3a.ctex"]
 
 [params]
 

@@ -62,11 +62,10 @@ animations = [{
 
 [node name="CharacterHumanNPC2" type="Area2D"]
 script = ExtResource("1_of4p8")
-is_player = null
 flips_when = 1
 ignore_walkable_areas = true
 script_name = "HumanNPC2"
-description = "H 701"
+description = "408"
 cursor = 8
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]

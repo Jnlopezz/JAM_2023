@@ -6,12 +6,15 @@ extends CanvasLayer
 @onready var rtl_dialog: RichTextLabel = $Dialogs/RtlDialog
 @onready var rtl_narrator: RichTextLabel = $Dialogs/RtlNarrador
 @onready var btn_continue: TextureButton = $Dialogs/BtnContinue
+@onready var bg_dialog_room: Control = $Dialogs/Dialog_room
 
 # ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ GODOT ░░░░
 func _ready() -> void:
+	bg_dialog_room.hide()
 	dialog_menu_title.text = ""
 	dialog_menu_title.set_meta('ori_y', dialog_menu_title.position.y)
 	Globals.intro_triggered.connect(_on_intro_triggered)
+	Globals.dialog_ended.connect(_on_dialog_ended)
 	G.title_setted.connect(_set_dialog_menu_title)
 	C.character_spoke.connect(_show_character_text)
 	dialog_menu.selected.connect(_on_selected)
@@ -49,14 +52,18 @@ func _on_selected() -> void:
 	_on_continue_pressed()
 
 
+func _on_dialog_ended() -> void:
+	bg_dialog_room.hide()
+
+
 func _show_character_text(c: PopochiuCharacter, m: String) -> void:
 	var text := '[center]%s[/center]'
-	
 	match c:
 		C.Narra:
 			rtl_dialog.text = ''
 			rtl_narrator.text = text % m
 		_:
+			bg_dialog_room.show()
 			rtl_narrator.text = ''
 			rtl_dialog.text = text % ('%s: %s' % [c.description, m])
 	

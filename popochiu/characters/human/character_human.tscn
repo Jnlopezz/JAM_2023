@@ -48,11 +48,12 @@ animations = [{
 }]
 
 [node name="CharacterHuman" type="Area2D"]
+z_index = 1
 script = ExtResource("1_4cv35")
 is_player = true
 flips_when = 1
 script_name = "Human"
-description = "Human"
+description = "407"
 cursor = 8
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]

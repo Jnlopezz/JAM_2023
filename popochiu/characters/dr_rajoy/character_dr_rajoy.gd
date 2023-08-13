@@ -4,10 +4,12 @@ extends PopochiuCharacter
 # Use await E.queue([]) if you want to pause the excecution of
 # the function until the sequence of events finishes.
 
+@onready var anim_player: AnimatedSprite2D = $Sprite2D
 const Data := preload('character_dr_rajoy_state.gd')
 
+signal rajoy_arrived
 var state: Data = load('res://popochiu/characters/dr_rajoy/character_dr_rajoy.tres')
-
+var rajoy_phase := 1
 
 # ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ VIRTUAL ░░░░
 # When the room in which this node is located finishes being added to the tree
@@ -38,12 +40,17 @@ func _on_item_used(item: PopochiuInventoryItem) -> void:
 
 # Use it to play the idle animation for the character
 func _play_idle() -> void:
+	anim_player.play('idle_%s' % rajoy_phase)
 	super()
 
 
+func _walk_ended() -> void:
+	emit_signal('rajoy_arrived')
+	
 # Use it to play the walk animation for the character
 # target_pos can be used to know the movement direction
 func _play_walk(target_pos: Vector2) -> void:
+	anim_player.play('side_%s' % rajoy_phase)
 	super(target_pos)
 
 
