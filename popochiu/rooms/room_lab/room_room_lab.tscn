@@ -52,7 +52,6 @@ position = Vector2(146, 1037)
 position = Vector2(250, 888)
 
 [node name="Timer" type="Timer" parent="Npcs1"]
-one_shot = true
 
 [node name="Npcs2" type="Node2D" parent="."]
 script = ExtResource("2_4qwv4")
@@ -79,7 +78,6 @@ position = Vector2(1214, 885)
 position = Vector2(1202, 1003)
 
 [node name="Timer" type="Timer" parent="Npcs2"]
-one_shot = true
 
 [node name="WalkableAreas" type="Node2D" parent="."]
 

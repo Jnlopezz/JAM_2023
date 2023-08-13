@@ -10,6 +10,7 @@ enum Looking {UP, UP_RIGHT, RIGHT, RIGHT_DOWN, DOWN, DOWN_LEFT, LEFT, UP_LEFT}
 
 signal started_walk_to(character, start, end)
 signal stoped_walk
+signal move_ended
 
 @export var text_color := Color.WHITE
 @export var flips_when: FlipsWhen = FlipsWhen.NONE
@@ -117,7 +118,7 @@ func walk(target_pos: Vector2) -> void:
 	
 	var is_character_finished := false
 	
-	await C.character_move_ended
+	await move_ended
 	
 	is_moving = false
 
@@ -258,7 +259,7 @@ func queue_walk_to(pos: Vector2) -> Callable:
 func walk_to(pos: Vector2) -> void:
 	walk(E.current_room.to_global(pos))
 	
-	await C.character_move_ended
+	await move_ended
 
 
 func queue_walk_to_prop(id: String) -> Callable:
@@ -268,7 +269,7 @@ func queue_walk_to_prop(id: String) -> Callable:
 func walk_to_prop(id: String) -> void:
 	_walk_to_clickable(E.current_room.get_prop(id))
 	
-	await C.character_move_ended
+	await move_ended
 
 
 func queue_walk_to_hotspot(id: String) -> Callable:
@@ -278,7 +279,7 @@ func queue_walk_to_hotspot(id: String) -> Callable:
 func walk_to_hotspot(id: String) -> void:
 	_walk_to_clickable(E.current_room.get_hotspot(id))
 	
-	await C.character_move_ended
+	await move_ended
 
 
 func queue_walk_to_marker(id: String) -> Callable:
@@ -286,9 +287,9 @@ func queue_walk_to_marker(id: String) -> Callable:
 
 
 func walk_to_marker(id: String) -> void:
-	walk(E.current_room.get_point(id))
+	walk(E.current_room.get_marker(id))
 
-	await C.character_move_ended
+	await move_ended
 
 
 func queue_set_emotion(new_emotion: String) -> Callable:
