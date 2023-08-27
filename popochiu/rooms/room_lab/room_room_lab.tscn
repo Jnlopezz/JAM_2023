@@ -31,9 +31,9 @@
 [ext_resource type="AudioStream" uid="uid://v4n0faxgh1vx" path="res://Audios/hey.ogg" id="29_m2qyu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_u53dl"]
-vertices = PackedVector2Array(296, 574, -458, 576, -216, 237, 217, 239, 279, 486, 350, 441)
+vertices = PackedVector2Array(304, 580, -458, 576, -216, 237, 217, 239, 306, 518, 412, 507)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 3, 5)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-216, 237, 217, 239, 350, 441, 279, 486, 296, 574, -458, 576)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-216, 237, 217, 239, 412, 507, 306, 518, 304, 580, -458, 576)])
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17h8c"]
 atlas = ExtResource("23_tj1ud")
@@ -318,12 +318,15 @@ script = ExtResource("24_axkr4")
 
 [node name="Ambient" type="AudioStreamPlayer" parent="AudioManager/MX"]
 stream = ExtResource("24_xhtcp")
+volume_db = -20.0
 
 [node name="Button" type="AudioStreamPlayer" parent="AudioManager/MX"]
 stream = ExtResource("25_viuxv")
+volume_db = -7.0
 
 [node name="Steps" type="AudioStreamPlayer" parent="AudioManager/MX"]
 stream = ExtResource("26_kvl04")
+volume_db = -5.0
 
 [node name="Visagra_close" type="AudioStreamPlayer" parent="AudioManager/MX"]
 stream = ExtResource("27_qsb15")

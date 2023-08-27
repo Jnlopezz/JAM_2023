@@ -29,6 +29,7 @@ func _on_room_entered() -> void:
 # is visible.
 func _on_room_transition_finished() -> void:
 	await C.Narra.say('Aprieta el botón!')
+	Globals.dialog_ended.emit()
 	$Npcs1.start_npcs()
 	$Npcs2.start_npcs()
 	$Rajoy.start_rajoy()
@@ -45,12 +46,10 @@ func on_timer_completed() -> void:
 	if $Rajoy.rajoy_present:
 		C.Human.punir()
 		$Rajoy.add_one_phase()
-		print('siguió a phase')
 
 
 func _on_abort_tween() -> void:
 	$Rajoy.abort_timer()
-	print('Abortó')
 
 
 func on_button_done() -> void:

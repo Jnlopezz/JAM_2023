@@ -114,7 +114,7 @@ func _walk_ended() -> void:
 	emit_signal('npc_arrived')
 	
 	var probability := randi() % 100
-	if probability <= 50:
+	if probability <= 50 and not Globals.in_dialog:
 		hand_raised = true
 		_play_hand()
 	else:

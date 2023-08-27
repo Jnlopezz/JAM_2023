@@ -10,3 +10,4 @@ signal reward
 signal end_game
 signal restart_game
 signal audio(key, source, audio)
+var in_dialog

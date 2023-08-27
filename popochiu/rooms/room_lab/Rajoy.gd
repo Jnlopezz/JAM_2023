@@ -25,6 +25,10 @@ func walk(target_pos: Vector2) -> void:
 
 
 func _on_time_out() -> void:
+	if Globals.in_dialog:
+		timer.start(get_wait_time(10))
+		return
+	
 	var npc : PopochiuCharacter = C[character_name]
 	position_idx += 1
 	npc.show()
@@ -38,6 +42,8 @@ func on_rajoy_arrived() -> void:
 	npc.rajoy_arrived.disconnect(on_rajoy_arrived)
 	
 	if position_idx == 1:
+		if Globals.in_dialog: await Globals.dialog_ended
+		
 		rajoy_present = true
 		Globals.tween_initial.emit()
 		await Globals.tween_ended

@@ -64,13 +64,17 @@ func _on_selected() -> void:
 
 
 func _on_dialog_ended() -> void:
+	Globals.in_dialog = false
 	Globals.audio.emit('play', 'MX', 'Ambient')
 	bg_dialog_room.hide()
-	tween.play()
-	timer.show()
+	if counting:
+		tween.play()
+		timer.show()
 
 
 func _show_character_text(c: PopochiuCharacter, m: String) -> void:
+	Globals.in_dialog = true
+	Globals.audio.emit('stop', 'MX', 'Steps')
 	var text := '[center]%s[/center]'
 	match c:
 		C.Narra:
@@ -144,7 +148,6 @@ func on_end_game() -> void:
 func on_end_true() -> void:
 	end_true.pressed.disconnect(on_end_true)
 	end_false.pressed.disconnect(on_end_false)
-	print('close game')
 	get_tree().quit()
 
 
@@ -154,4 +157,3 @@ func on_end_false() -> void:
 	end_game.hide()
 	Globals.restart_game.emit()
 	tween = create_tween()
-	print('restart')
